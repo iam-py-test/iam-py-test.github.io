@@ -1,6 +1,5 @@
 <html>
   <head>
-    % My security research
     <meta charset="UTF-8">
   </head>
   <body>
