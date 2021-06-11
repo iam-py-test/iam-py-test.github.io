@@ -14,9 +14,9 @@ var main = async function(){
   })
   
   
-  var knowndomains = new Map([["google.com","Google"],["accounts.google.com","Google"],["google.org","Google"],["blog.google","Google"],["duckduckgo.com","DuckDuckGo"],["duck.com","DuckDuckGo"]])
+  window.knowndomains = new Map([["google.com","Google"],["accounts.google.com","Google"],["google.org","Google"],["blog.google","Google"],["duckduckgo.com","DuckDuckGo"],["duck.com","DuckDuckGo"]])
   var domain = new URL(location).queryParams.get("q")
-  document.getElementById("known").textContent = (knowndomains.get(domain)||"Not known")
+  document.getElementById("known").textContent = (window.knowndomains.get(domain)||"Not known")
   
   
 }
