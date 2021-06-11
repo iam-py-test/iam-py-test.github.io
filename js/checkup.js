@@ -17,7 +17,7 @@ var main = async function(){
   
   window.knowndomains = new Map([["google.com","Google"],["accounts.google.com","Google"],["google.org","Google"],["blog.google","Google"],["duckduckgo.com","DuckDuckGo"],["duck.com","DuckDuckGo"]])
   console.log(window.knowndomains)
-  var domain = new URL(location).queryParams.get("q")
+  var domain = new URL(location).searchParams.get("q")
   console.log(window.knowndomains,domain)
   try{
   document.getElementById("known").textContent = (window.knowndomains.get(domain)||"Not known")
