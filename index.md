@@ -3,4 +3,4 @@ See <a href="/security_research/reports.html">this</a> for my security research.
 To report malware or phishing websites, <a href="https://github.com/iam-py-test/Badware-Reports-1/issues/new/choose">click here</a>.
 
 <br><br>
-<a href="privacy.html" style="color:blue" id='privacy-policy'>Click here for my privacy policy</a><!--you can hide this via iam-py-test.github.io###privacy-policy in uBlock Origin & maybe AdGuard-->
+<a href="privacy.md" style="color:blue" id='privacy-policy'>Click here for my privacy policy</a><!--you can hide this via iam-py-test.github.io###privacy-policy in uBlock Origin & maybe AdGuard-->
