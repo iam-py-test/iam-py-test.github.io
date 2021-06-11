@@ -4,7 +4,7 @@ var main = async function(){
       document.getElementById("my-am").textContent = 'Invalid domain'
       return;
     }
-    var text = await req.text().split("\n")
+    var text = await req.text()
     if(text.includes(new URL(location).searchParams.get("q"))){
       document.getElementById('my-am').textContent = "Detected"
     }
