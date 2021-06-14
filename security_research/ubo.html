@@ -10,7 +10,7 @@
 <script>
   window.onload = function(){
   console.log(getComputedStyle(document.querySelectorAll('.ADBox')[0]).display)
-  if(getComputedStyle(document.querySelectorAll('.ADBox')[0]).display === 'none'){
+  if(getComputedStyle(document.querySelectorAll('.ADBox')[0]).display === 'none' || document.querySelectorAll(".ADBox")[0].parentElement === null){
     document.getElementById("easylist").textContent = "Easylist detected"
   }
   }
