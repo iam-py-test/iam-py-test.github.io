@@ -24,7 +24,7 @@ var main = async function(){
   catch(err){
     console.log("Error:",err)
   }
-  document.getElementById('norton').href = "https://safeweb.norton.com/report/show?url=" + domain
+  document.getElementById('norton').href = "https://safeweb.norton.com/report/show?url=" + encodeURIComponent(domain)
   
 }
 main().catch(console.error)
