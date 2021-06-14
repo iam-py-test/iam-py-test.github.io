@@ -1,7 +1,10 @@
 <p class="ADBox">This is an ad</p>
 <p id="easylist">Easylist not detected</p>
 <script>
+  window.onload = function(){
+  console.log(getComputedStyle(document.querySelectorAll('.ADBox')[0]).display)
   if(getComputedStyle(document.querySelectorAll('.ADBox')[0]).display === 'none'){
     document.getElementById("easylist").textContent = "Easylist detected"
+  }
   }
 </script>
