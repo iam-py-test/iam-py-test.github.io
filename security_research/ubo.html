@@ -7,6 +7,7 @@
   <body>
 <p class="ADBox">This is an ad - if you see it, something is wrong</p>
 <p id="easylist">Easylist not detected</p>
+    <p id="req">Unknown</p>
 <script>
   window.onload = function(){
   console.log(getComputedStyle(document.querySelectorAll('.ADBox')[0]).display)
@@ -14,6 +15,11 @@
     document.getElementById("easylist").textContent = "Easylist detected"
   }
   }
+  fetch("/favicon.jpg?t=0&ad_slot=00000").then(function(){
+    document.getElementById('req').textContent = "Easylist blocking not detected"
+  }).catch(function(){
+    document.getElementById("req").textContent = "Easylist blocking detected"
+  })
 </script>
     <div>
       This page is a POC for exploiting Easylist's <code>##.ADBox</code> rule being applied to all pages.
