@@ -15,7 +15,7 @@
     document.getElementById("easylist").textContent = "Easylist detected"
   }
   }
-  fetch("/favicon.jpg?t=0&ad_slot=00000").then(function(){
+  fetch("/favicon.jpg?t=0&ad_url=00000").then(function(){
     document.getElementById('req').textContent = "Easylist blocking not detected"
   }).catch(function(){
     document.getElementById("req").textContent = "Easylist blocking detected"
