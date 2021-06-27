@@ -30,7 +30,7 @@
     <script>
       var a = document.createElement('a')
       a.href = document.referrer.toLowerCase()
-      if(a.href !== ''){
+      if(document.referrer.toLowerCase() !== '' & document.referrer.toLowerCase() !== location.href){
       a.textContent = "Back"
       document.getElementById('back').appendChild(a)
       document.getElementById('back').hidden = false
