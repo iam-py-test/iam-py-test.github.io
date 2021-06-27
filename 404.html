@@ -30,9 +30,11 @@
     <script>
       var a = document.createElement('a')
       a.href = document.referrer.toLowerCase()
+      if(a.href !== ''){
+      a.textContent = "Back"
       document.getElementById('back').appendChild(a)
       document.getElementById('back').hidden = false
-      
+      }
       if(document.referrer.toLowerCase().includes('iam-py-test.github.io')){
         //it is my fault the link is broken
         document.getElementById('myfault').innerText = "My bad! It looks like I deleted or moved this page, and forgot to update a link. "
