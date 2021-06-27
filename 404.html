@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>404 Not Found </title>
+    <title>Page Not Found </title>
   </head>
   <body>
-<h1>404 Not Found</h1>
-<div>Oh no! It looks like you requested a non-existant page.<br>
-  Here are some links to help you find what your looking for:
+<h1>Page Not Found (404)</h1>
+    <div><p >Oh no! It looks like this page does not exist or has moved.</p>
+      <p id="myfault">
+  This can happen if I move or delete a page but the link you clicked was not updated, my site is experencing a problem, or maybe you made a typo (typos do happen).<br>
+  No matter what happened, it is not your fault.
+      </p>
+  Here are some links to help you find what you are looking for:
+  <p hidden id="back"></p>
   <p><a href="https://github.com/iam-py-test">My GitHub profile</a></p>
   <p><a href="/security_research/reports.html">My (limited) security research</a></p>
   <p><a href="/mirrors">Mirrors of my lists</a></p>
@@ -22,5 +27,16 @@
   <br><br>
   <p>I hope you find the page you were looking for.<br> Note: if you go to 404.html, it will always return this message even thought it exists</p>
 </div>
+    <script>
+      var a = document.createElement('a')
+      a.href = document.referrer.toLowerCase()
+      document.getElementById('back').appendChild(a)
+      document.getElementById('back').hidden = false
+      
+      if(document.referrer.toLowerCase().includes('iam-py-test.github.io')){
+        //it is my fault the link is broken
+        document.getElementById('myfault').innerText = "My bad! It looks like I deleted or moved this page, and forgot to update a link. "
+      }
+    </script>
   </body>
 </html>
