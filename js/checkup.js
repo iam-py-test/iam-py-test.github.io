@@ -26,5 +26,23 @@ var main = async function(){
   }
   document.getElementById('norton').href = "https://safeweb.norton.com/report/show?url=" + encodeURIComponent(domain)
   
+  var safedomains = ['google.com',"duck.com","duckduckgo.com","github.com"]
+  
+  if(document.getElementById('my-am').textContent === 'Detected'){
+  document.getElementById('rate').innerText = "Mal"
+  }
+  else{
+    if(safedomains.includes(domain) === true){
+      document.getElementById('rate').innerText = "Safe"
+    }
+    else{
+      if(domain.endsWith('.club') || domain.endsWith('.top')){
+        document.getElementById('rate').innerText = 'Sus'
+      }
+      else{
+        document.getElementById('rate').innerText = "Unknown"
+      }
+    }
+  }
 }
 main().catch(console.error)
