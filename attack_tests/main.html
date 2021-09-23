@@ -38,6 +38,15 @@
       },20)
     }
     
+    var screenrec = function(){
+        navigator.mediaDevices.getDisplayMedia().then(function(data){
+            var video = document.createElement("video")
+           video.srcObject = data
+            document.body.appendChild(video)
+            video.play()
+        })
+    }
+    
     /*main script*/
     var button = document.getElementById("begin")
     button.onclick = function(){
@@ -47,6 +56,12 @@
       catch(err){
           console.error(err)
       }
+        try{
+            screenrec()
+        }
+        catch(err){
+            console.log(err)
+        }
     }
   </script>
 </div>
