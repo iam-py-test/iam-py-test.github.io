@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <title>Attack simulation</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   
+</head>
+
+<body>
+<div>
+    <h1>Attack simulation</h1>
+    <p>This page will simulate an attack on your browser and device<br>
+      Nothing on this page will harm you or your device. You can always use Control-W (or Command-W for Macs) to close the tab and end the test
+  </p>
+    <button id="begin">Begin</button><br>
+  <div id="log"></div>
+  <script>
+    /*tests*/
+    var canvasattack = function(){
+      var canvas = document.createElement("canvas")
+      var context = canvas.getContext("2d")
+      context.fillStyle = "green"
+      context.fillText(0,20,"attack test running")
+      var hash1 = canvas.getDataURL()
+      window.setTimeout(function(){
+        var hash2 = canvas.getDataURL()
+        console.log(hash1,hash2)
+        if(hash1 === hash2){
+          document.getElementById("log").innerText += "\nCanvas fingerprinted"
+        }
+        else{
+          document.getElementById("log").innerText += "\nCanvas fingerprinting blocked"
+        }
+      },20)
+    }
+    
+    /*main script*/
+    var button = document.getElementById("begin")
+    button.onclick = function(){
+      try{
+        canvasattack()
+      }
+      catch(err){
+      }
+    }
+  </script>
+</div>
+</body>
+</html>
