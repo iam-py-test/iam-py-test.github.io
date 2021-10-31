@@ -12,13 +12,13 @@
     for(p = 0; p < 90; p ++){
       try{
         await fetch("http://localhost:" + p,{mode:"no-cors"})
+        log("Detected on " + p)
+
       }
       catch(err){
         log("Can not reach " + p)
       }
-      else{
-        log("Detected on " + p)
-      }
+  
     }
   }
 </script>
