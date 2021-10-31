@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<h2>Port scanning test</h2>
+<button id="start">Start test</button><br>
+<div id="log">
+</div>
+<script>
+  var log = function(m){
+    document.getElementById("log").innerText += m + "\n" 
+  }
+  document.getElementById("start").onclick = async function(){
+    var p = 0;
+    for(p = 0; p < 90){
+      try{
+        await fetch("http://localhost:" + p)
+      }
+      catch(){
+        log("Can not reach " + p)
+      }
+      else{
+        log("Detected on " + p)
+      }
+    }
+  }
+</script>
