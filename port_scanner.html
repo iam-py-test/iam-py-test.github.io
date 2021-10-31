@@ -11,9 +11,9 @@
     var p = 0;
     for(p = 0; p < 90; p ++){
       try{
-        await fetch("http://localhost:" + p)
+        await fetch("http://localhost:" + p,{mode:"no-cors"})
       }
-      catch(){
+      catch(err){
         log("Can not reach " + p)
       }
       else{
