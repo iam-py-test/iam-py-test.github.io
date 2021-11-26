@@ -3,9 +3,9 @@
   <head>
     <title>Devtools blocking POC</title>
     <script>
-      while(true){
+      window.setInterval(function(){
         debugger;
-      }
+      },10)
     </script>
   </head>
   <body>
