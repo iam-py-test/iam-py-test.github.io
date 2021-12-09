@@ -23,13 +23,13 @@
     document.getElementById("log").appendChild(document.createElement("br"))
   }
   document.getElementById("start").onclick = async function(){
-    var p = 0;
-    for(p = 0; p < 90; p ++){
+    window.p = 0;
+    for(window.p = 0; window.p < 90; window.p ++){
       try{
-        fetch("http://localhost:" + p,{mode:"no-cors"}).then(function(){log("Detected on " + p,false)},function(){log("Can not reach " + p,true)})
+        fetch("http://localhost:" + p,{mode:"no-cors"}).then(function(){log("Detected on " + window.p,false)},function(){log("Can not reach " + window.p,true)})
       }
       catch(err){
-        log("Can not reach " + p,true)
+        log("Can not reach " + window.p,true)
       }
   
     }
