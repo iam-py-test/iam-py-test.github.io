@@ -27,7 +27,7 @@
     for(window.p = 0; window.p < 90; window.p ++){
       console.log(p,window.p)
       try{
-        fetch("http://localhost:" + window.p,{mode:"no-cors"}).then(function(){log("Detected on " + window.p,false)},function(){log("Can not reach " + window.p,true)})
+        fetch("http://localhost:" + window.p,{mode:"no-cors"}).then(function(){log("Detected on " + p,false)},function(){log("Can not reach " + p,true)})
       }
       catch(err){
         log("Can not reach " + window.p,true)
