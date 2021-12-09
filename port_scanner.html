@@ -4,19 +4,27 @@
 <div id="log">
 </div>
 <script>
-  var log = function(m){
-    document.getElementById("log").innerText += m + "\n" 
+  var log = function(m,ok){
+    var e = document.createElement("p")
+    e.innerText = m
+    if(ok === true){
+      e.style.color = "green"
+    }
+    else{
+      e.style.color = "red"
+    }
+    document.getElementById("log").appendChild(e)
   }
   document.getElementById("start").onclick = async function(){
     var p = 0;
     for(p = 0; p < 90; p ++){
       try{
         await fetch("http://localhost:" + p,{mode:"no-cors"})
-        log("Detected on " + p)
+        log("Detected on " + p,false)
 
       }
       catch(err){
-        log("Can not reach " + p)
+        log("Can not reach " + p,true)
       }
   
     }
