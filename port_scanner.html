@@ -25,8 +25,9 @@
   document.getElementById("start").onclick = async function(){
     window.p = 0;
     for(window.p = 0; window.p < 90; window.p ++){
+      console.log(p,window.p)
       try{
-        fetch("http://localhost:" + p,{mode:"no-cors"}).then(function(){log("Detected on " + window.p,false)},function(){log("Can not reach " + window.p,true)})
+        fetch("http://localhost:" + window.p,{mode:"no-cors"}).then(function(){log("Detected on " + window.p,false)},function(){log("Can not reach " + window.p,true)})
       }
       catch(err){
         log("Can not reach " + window.p,true)
