@@ -5,7 +5,7 @@
 </div>
 <script>
   var log = function(m,ok){
-    var e = document.createElement("p")
+    var e = document.createElement("s")
     e.innerText = m
     if(ok === true){
       e.style.color = "green"
@@ -14,6 +14,7 @@
       e.style.color = "red"
     }
     document.getElementById("log").appendChild(e)
+    document.getElementById("log").appendChild(document.createElement("br"))
   }
   document.getElementById("start").onclick = async function(){
     var p = 0;
