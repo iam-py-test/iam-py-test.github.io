@@ -25,7 +25,7 @@
   
   var test = async function(port){
     try{
-      await fetch("http://localhost:" + port)
+      await fetch("http://localhost:" + port,{mode:"no-cors"})
       log("Detected on port " + port, false)
     }
     catch(err){
