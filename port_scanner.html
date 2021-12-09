@@ -20,9 +20,7 @@
     var p = 0;
     for(p = 0; p < 90; p ++){
       try{
-        await fetch("http://localhost:" + p,{mode:"no-cors"})
-        log("Detected on " + p,false)
-
+        fetch("http://localhost:" + p,{mode:"no-cors"}).then(function(){log("Detected on " + p,false)},function(){log("Can not reach " + p,true)})
       }
       catch(err){
         log("Can not reach " + p,true)
