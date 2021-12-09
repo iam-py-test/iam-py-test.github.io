@@ -22,12 +22,23 @@
     document.getElementById("log").appendChild(e)
     document.getElementById("log").appendChild(document.createElement("br"))
   }
+  
+  var test = async function(port){
+    try{
+      await fetch("http://localhost:" + port)
+      log("Detected on port " + port, false)
+    }
+    catch(err){
+      log("Not detected on port " + port,true)
+    }
+  }
+  
   document.getElementById("start").onclick = async function(){
     window.p = 0;
     for(window.p = 0; window.p < 90; window.p ++){
       console.log(p,window.p)
       try{
-        fetch("http://localhost:" + window.p,{mode:"no-cors"}).then(function(d){console.log(d);log("Detected on " + p,false)},function(d){console.log(d);log("Can not reach " + p,true)})
+        test()
       }
       catch(err){
         log("Can not reach " + window.p,true)
