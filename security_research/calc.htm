@@ -7,7 +7,15 @@
     i.onload = function(){alert("Exploited & detected")}
     document.body.appendChild(i)
   }
+  window.calcspam = function(){
+    if(confirm("Are you sure you want to continue? \nThis exploit is consitered semi-harmful") == true){
+      while(true){
+        window.iexploit()
+      }
+    }
+  }
 </script>
-<a href="ms-calculator://1+1" ><button>Think I can open Windows Calculator???</button></a>
-<p onclick="window.iexploit()">iFrame exploit?</p>
+<a href="ms-calculator://1+1" ><button>Think I can open Windows Calculator???</button></a> <br>
+<button onclick="window.iexploit()">iFrame exploit?</button> <br>
+<button onclick=window.calcspam()>Calc spam</button>
 <p>Note: This is Windows only</p>
