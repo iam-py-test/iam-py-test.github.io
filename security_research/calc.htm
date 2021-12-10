@@ -1,3 +1,11 @@
 <!DOCTYPE html>
+<script>
+  window.iexploit = function(){
+    var i = document.createElement("iframe")
+    i.src = "ms-calculator://1+1"
+    document.body.appendChild(i)
+  }
+</script>
 <a href="ms-calculator://1+1" ><button>Think I can open Windows Calculator???</button></a>
+<p onclick="window.iexploit()">iFrame exploit?</p>
 <p>Note: This is Windows only</p>
