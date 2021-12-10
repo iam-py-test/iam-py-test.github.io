@@ -6,6 +6,7 @@
     i.hidden = true
     i.onload = function(){alert("Exploited & detected")}
     document.body.appendChild(i)
+    window.setTimeout(function(){i.remove()},100)
   }
   window.calcspam = function(){
     if(confirm("Are you sure you want to continue? \nThis exploit is consitered semi-harmful") == true){
