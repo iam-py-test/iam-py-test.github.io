@@ -3,6 +3,8 @@
   window.iexploit = function(){
     var i = document.createElement("iframe")
     i.src = "ms-calculator://1+1"
+    i.hidden = true
+    i.onload = function(){alert("Exploited & detected")}
     document.body.appendChild(i)
   }
 </script>
