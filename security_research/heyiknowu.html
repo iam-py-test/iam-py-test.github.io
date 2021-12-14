@@ -17,7 +17,7 @@
     <textarea placeholder="Enter your old results here..." id="old"></textarea><br>
     <button id="compare">Compare</button>
     <h3>The result from this time</h3>
-    <div id="r"></div>
+    <textarea id="r" readonly></textarea>
     <button id="test">Test</button><br>
     <h2>The verdict is...</h2>
     <div id="verdict"></div>
@@ -34,7 +34,7 @@
         document.getElementById("r").innerText = JSON.stringify(data)
       }
       document.getElementById("compare").onclick = function(){
-        var data = JSON.parse(document.getElementById("old"))
+        var data = JSON.parse(document.getElementById("old").value)
         var canvas = document.createElement("canvas")
         var context = canvas.getContext("2d")
         context.fillText(20,20,"i'm going to track u yep i'm evil")
