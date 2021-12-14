@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hey! Do I know you?</title>
+  </head>
+  <body>
+    <h2>Hey! Do I know you?</h2>
+    <div>
+      There are many ways that websites can <i>fingerprint</i> your browser, allowing them to identify you even when you clear your cookies, use a VPN, or even switch to <i>private browsing mode</i>. <br>
+      Don't believe me? 
+    </div>
+    <h2>How to use</h2>
+    <div>
+      First, click the <i>test</i> button. Wait for it to complete and then copy the results from the <i>The result from this time</i> section. Then open a private browsing window, clear your cookies, or turn on a VPN. Go back to this page, paste into the <i>Enter old results here</i> area, and click <i>Compare</i>.
+    </div>
+    <h3>Enter the result from when you last ran this</h3>
+    <textarea placeholder="Enter your old results here..." id="old"></textarea><br>
+    <button id="compare">Compare</button>
+    <h3>The result from this time</h3>
+    <div id="r"></div>
+    <button id="test">Test</button><br>
+    <h2>The verdict is...</h2>
+    <div id="verdict"></div>
+    <script>
+      document.getElementById("test").onclick = async function(){
+        var data = {}
+        var canvas = document.createElement("canvas")
+        var context = canvas.getContext("2d")
+        context.fillText("i'm going to track u yep i'm evil")
+        data.cf = canvas.toDataURL()
+        data.ua = navigator.userAgent
+        data.cookie = 'eviltracker'
+        localStorage.setItem("eviltracker","eviltracker")
+        document.getElementById("r").innerText = JSON.stringify(data)
+      }
+      document.getElementById("compare").onclick = function(){
+        var data = JSON.parse(document.getElementById("old"))
+        var canvas = document.createElement("canvas")
+        var context = canvas.getContext("2d")
+        context.fillText("i'm going to track u yep i'm evil")
+        if(data.cf === canvas.toDataURL()){
+          document.getElementById("verdict").innerText += "Canvas fingerprinted - it's the same device\n"
+        }
+        else{
+        }
+        if(data.ua === navigator.userAgent){
+          document.getElementById("verdict").innerText += "Same OS and browser\n"
+        }
+        if(data.cookie === localStorage.getItem("eviltracker")){
+          document.getElementById("verdict").innerText += "I still can get your cookies\n"
+        }
+      }
+    </script>
+  </body>
+</html>
