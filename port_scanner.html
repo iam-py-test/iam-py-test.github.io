@@ -40,6 +40,9 @@
     if(window.total.length >= 90){
       var  = Object.entries(window.total)
       for(var times = 0;times < e.length;times++){
+        if(e[times][0] == "length"){
+          continue
+        }
         if(e[times][1] == true){
           log("Detected on " + e[times][0],false)
         }
@@ -55,7 +58,7 @@
     window.total = {}
     window.total.length = 0
     window.p = 0;
-    for(window.p = 0; window.p < 90; window.p ++){
+    for(window.p = 0; window.p <= 90; window.p ++){
       try{
         test(p)
       }
