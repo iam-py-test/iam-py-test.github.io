@@ -24,23 +24,28 @@
   }
   
   var test = async function(port){
+    det = false
     try{
       await fetch("http://localhost:" + port,{mode:"no-cors"})
       window.detectedon.push(port)
       console.log("Detected on port " + port, false)
+      det = true
     }
     catch(err){
       console.log("Not detected on port " + port,true)
+      det = false
     }
-    window.total.push(port)
+    window.total[port] = det
+    window.total.length += 1
     if(window.total.length == 90){
+      var e = Object.entries(window.total)
       var t=0
-      for(t=0;t < window.total.length;t++){
-        if(window.detectedon.includes(window.total[t])){
-          log("Detected on " + window.total[t],true)
+      for(t=0;t < e.length;t++){
+        if(e[t][1] == true){
+          log("Detected on " + e[t][0],true)
         }
         else{
-          log("Not detected on " + window.total[t],false)
+          log("Not detected on " + e[t][0],false)
         }
       }
     }
