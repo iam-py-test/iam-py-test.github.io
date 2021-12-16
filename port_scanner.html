@@ -24,7 +24,7 @@
   }
   
   var test = async function(port){
-    det = false
+    var det = false
     try{
       await fetch("http://localhost:" + port,{mode:"no-cors"})
       window.detectedon.push(port)
@@ -37,15 +37,14 @@
     }
     window.total[port] = det
     window.total.length += 1
-    if(window.total.length == 90){
-      var e = Object.entries(window.total)
-      var t=0
-      for(t=0;t < e.length;t++){
-        if(e[t][1] == true){
-          log("Detected on " + e[t][0],true)
+    if(window.total.length >= 90){
+      var  = Object.entries(window.total)
+      for(var times = 0;times < e.length;times++){
+        if(e[times][1] == true){
+          log("Detected on " + e[times][0],false)
         }
         else{
-          log("Not detected on " + e[t][0],false)
+          log("Not detected on " + e[times][0],true)
         }
       }
     }
@@ -57,12 +56,11 @@
     window.total.length = 0
     window.p = 0;
     for(window.p = 0; window.p < 90; window.p ++){
-      console.log(p,window.p)
       try{
         test(p)
       }
       catch(err){
-        console.log("Can not reach " + window.p,true)
+        console.log("Error in running test: ",err)
       }
   
     }
