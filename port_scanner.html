@@ -26,14 +26,29 @@
   var test = async function(port){
     try{
       await fetch("http://localhost:" + port,{mode:"no-cors"})
-      log("Detected on port " + port, false)
+      window.detectedon.push(port)
+      console.log("Detected on port " + port, false)
     }
     catch(err){
-      log("Not detected on port " + port,true)
+      console.log("Not detected on port " + port,true)
+    }
+    window.total.push(port)
+    if(window.total.length == 90){
+      var t=0
+      for(t=0;t < window.total.length;t++){
+        if(window.detectedon.includes(window.total[t])){
+          log("Detected on " + window.total[t],true)
+        }
+        else{
+          log("Not detected on " + window.total[t],false)
+        }
+      }
     }
   }
   
   document.getElementById("start").onclick = async function(){
+    window.detectedon = []
+    window.total = []
     window.p = 0;
     for(window.p = 0; window.p < 90; window.p ++){
       console.log(p,window.p)
@@ -41,7 +56,7 @@
         test(p)
       }
       catch(err){
-        log("Can not reach " + window.p,true)
+        console.log("Can not reach " + window.p,true)
       }
   
     }
