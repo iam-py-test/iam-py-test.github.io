@@ -53,7 +53,8 @@
   
   document.getElementById("start").onclick = async function(){
     window.detectedon = []
-    window.total = []
+    window.total = {}
+    window.total.length = 0
     window.p = 0;
     for(window.p = 0; window.p < 90; window.p ++){
       console.log(p,window.p)
