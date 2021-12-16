@@ -37,8 +37,9 @@
     }
     window.total[port] = det
     window.total.length += 1
-    if(window.total.length >= 90){
+    if(window.total.length >= 90 & window.resp == false){
       var e = Object.entries(window.total)
+      window.resp = true
       for(var times = 0;times < e.length;times++){
         if(e[times][0] == "length"){
           continue
@@ -57,6 +58,7 @@
     window.detectedon = []
     window.total = {}
     window.total.length = 0
+    window.resp = false
     window.p = 0;
     for(window.p = 0; window.p <= 90; window.p ++){
       try{
