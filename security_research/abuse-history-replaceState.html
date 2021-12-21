@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>history.replaceState tests</title>
+  </head>
+  <body>
 <input id="url"><button id="click">Replace<button>
 <script>
 document.getElementById("click").onclick = function(){
@@ -5,3 +11,5 @@ history.replaceState("","",document.getElementById("url").value)
 alert("Replaced state with " + document.getElementById("url").value)
 }
 </script>
+    </body>
+  </html>
