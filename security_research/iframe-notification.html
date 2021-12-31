@@ -4,6 +4,9 @@
     window.setInterval(function(){
       try{
         new Notification("Spam")
+        if(Notification.premission != "granted"){
+          throw new Error("Noooooooooooooooo")
+        }
       }
       catch(err){
       var b = new Blob(["<script" + ">" + "Notification.requestPermission()" + "</script" + ">"])
