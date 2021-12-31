@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
   <script>
     window.onload = function(){
-      var b = new Blob(["<script>open('popup.html','_blank');</" + "script>"],{type:"text/html"})
+      var b = new Blob(["<script" + ">open('https://iam-py-test.github.io/security_research/popup.html','_blank');</" + "script>"],{type:"text/html"})
      var iframe = document.createElement("iframe")
      iframe.src = URL.createObjectURL(b)
       iframe.onload = function(){this.remove()}
@@ -14,5 +14,6 @@
     </script>
   </head>
   <body>
+    Can your popup blocker block this popup?
   </body>
 </html>
