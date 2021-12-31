@@ -9,7 +9,7 @@
         }
       }
       catch(err){
-      var b = new Blob(["Click to do the exploit <script" + ">" + "window.onmousedown = function(){Notification.requestPermission()}" + "</script" + ">"])
+      var b = new Blob(["Click to do the exploit <script" + ">" + "window.onmousedown = function(){Notification.requestPermission()}" + "</script" + ">"],{type:"text/html"})
       var i = document.createElement("iframe")
       i.onload = function(){
           var el= this
