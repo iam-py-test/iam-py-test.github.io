@@ -13,7 +13,7 @@
       var i = document.createElement("iframe")
       i.onload = function(){
           var el= this
-          window.setTimeout(function(){el.remove()},120000)
+          console.log("Loaded ",el)
         }
       i.src = URL.createObjectURL(b)
        
