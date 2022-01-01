@@ -55,7 +55,7 @@
         tests[id]()
       }
       var log = document.getElementById("log")
-      document.getElementById("start").addEventListener(function(){
+      document.getElementById("start").addEventListener("click",function(){
         for(var t = 0;t < tests.length;t++){
         runf(t).catch(console.log)
         }
