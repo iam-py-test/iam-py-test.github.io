@@ -25,7 +25,7 @@
           new Notification("Spam")
         },
         function(){
-          window.location.replaceState("https://google.com")
+          window.history.replaceState("https://google.com")
           log.innerText += "Spoofed domain via ReplaceState\n"
         },
         function(){
