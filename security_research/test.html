@@ -85,6 +85,14 @@
           i.src = "https://hacker:hacked@example.com"
           document.body.appendChild(i)
           i.hidden = true
+        },
+        function(){
+          //detect error pages
+          var i = document.createElement("iframe")
+          i.src = "http://thiswebsiteistotallydeadandinvalidgoaway.example"
+          document.body.appendChild(i)
+          i.onload = function(){alert(1)}
+          i.src += "#hacked"
         }
         ]
       var runf = async function(id){
