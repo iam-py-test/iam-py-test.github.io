@@ -79,6 +79,12 @@
         },
         function(){
           window.open("https://hacker:hacked@example.com")
+        },
+        function(){
+          var i = document.createElement("iframe")
+          i.src = "https://hacker:hacked@example.com"
+          document.body.appendChild(i)
+          i.hidden = true
         }
         ]
       var runf = async function(id){
