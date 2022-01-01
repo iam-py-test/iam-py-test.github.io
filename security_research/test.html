@@ -22,7 +22,9 @@
           window.open("https://iam-py-test.github.io/security_research/popup.html","_popup_evil")
         },
         function(){
-          Notification.requestPermission()
+          Notification.requestPermission().then(function(){
+            new Notification("Your browser should have blocked this...")
+          })
           new Notification("Spam")
         },
         function(){
@@ -74,6 +76,9 @@
         },
         function(){
           navigator.mediaDevices.getDisplayMedia()
+        },
+        function(){
+          window.open("https://hacker:hacked@example.com")
         }
         ]
       var runf = async function(id){
