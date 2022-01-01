@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>iam-py-test's browser security test page</title>
+  </head>
+  <body>
+    <h2>iam-py-test's browser security test page</h2>
+    <button id="start">Start test</button>
+    <h3>Log</h3>
+    <div id="log"></div>
+    <script>
+      var tests = [
+        function(){
+          var b = new Blob(["<script" + ">open('https://iam-py-test.github.io/security_research/popup.html','_blank');console.log('hacker')</" + "script>"],{type:"text/html"})
+     var iframe = document.createElement("iframe")
+     iframe.src = URL.createObjectURL(b)
+      iframe.onload = function(){this.remove()}
+    document.body.appendChild(iframe)
+        },
+        function(){
+          window.open("https://iam-py-test.github.io/security_research/popup.html","_popup_evil")
+        },
+        function(){
+          Notification.requestPermission()
+          new Notification("Spam")
+        },
+        function(){
+          window.location.replaceState("https://google.com")
+          log.innerText += "Spoofed domain via ReplaceState\n"
+        },
+        function(){
+           var canvas = document.createElement("canvas")
+        var context = canvas.getContext("2d")
+        context.fillText(20,20,"i'm going to track u yep i'm evil")
+        var id = canvas.toDataURL()
+        window.setTimeout(function(){
+          var canvas = document.createElement("canvas")
+        var context = canvas.getContext("2d")
+        context.fillText(20,20,"i'm going to track u yep i'm evil")
+          if(id === canvas.toDataURL()){
+            log.innerText += "Detected via Canvas\n"
+          }
+        },5)
+        },
+        function(){
+          var i = document.createElement("iframe")
+          i.src = "ms-calculator://1+1"
+          i.hidden = true
+    i.onload = function(){alert("Exploited & detected")}
+    document.body.appendChild(i)
+    window.setTimeout(function(){i.remove()},100)
+        }
+        ]
+      var runf = async function(id){
+        tests[id]()
+      }
+      var log = document.getElementById("log")
+      document.getElementById("start").addEventListener(function(){
+        for(var t = 0;t < tests.length;t++){
+        runf(t).catch(console.log)
+        }
+      })
+    </script>
+  </body>
+</html>
