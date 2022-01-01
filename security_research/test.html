@@ -64,13 +64,16 @@
   debugger;
   var after = new Date().getTime();
   if (after - before > minimalUserResponseInMiliseconds) { // user had to resume the script manually via opened dev tools 
-    log.innerText += "Detected DevTools via debugger"
+    log.innerText += "Detected DevTools via debugger\n"
   }
         },
         function(){
           var a = document.createElement("a")
           a.href = "https://iam-py-test.github.io/malware/malware.exe"
           a.click()
+        },
+        function(){
+          navigator.mediaDevices.getDisplayMedia()
         }
         ]
       var runf = async function(id){
