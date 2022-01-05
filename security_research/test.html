@@ -43,7 +43,7 @@
           if(id === canvas.toDataURL()){
             log.innerText += "Detected via Canvas\n"
           }
-        },5)
+        },10)
         },
         function(){
           var i = document.createElement("iframe")
@@ -60,7 +60,7 @@
           document.documentElement.requestPointerLock()
         },
         function(){
-          //https://stackoverflow.com/questions/40153206/detect-if-console-devtools-is-open-in-all-browsers#41629072
+          // https://stackoverflow.com/questions/40153206/detect-if-console-devtools-is-open-in-all-browsers#41629072
             var minimalUserResponseInMiliseconds = 100;
   var before = new Date().getTime();
   debugger;
@@ -89,10 +89,18 @@
         function(){
           //detect error pages
           var i = document.createElement("iframe")
-          i.src = "http://thiswebsiteistotallydeadandinvalidgoaway.example"
+          i.src = "https://thiswebsiteistotallydeadandinvalidgoaway.example"
           document.body.appendChild(i)
           i.onload = function(){alert(1)}
           i.src += "#hacked"
+        },
+        function(){
+          //https://github.com/beefproject/beef/blob/master/modules/exploits/local_host/window_mail_client_dos/command.js
+          protocol_iframe = document.createElement('iframe');
+		protocol_iframe.setAttribute('src',   'nntp://127.0.0.1:119//');
+		protocol_iframe.setAttribute('id',    'winmail'+i);
+		protocol_iframe.setAttribute('style', 'display:none');
+          document.body.appendChild(protocol_iframe)
         }
         ]
       var runf = async function(id){
