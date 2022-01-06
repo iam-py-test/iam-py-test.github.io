@@ -23,7 +23,8 @@
 </div>
 <script>
   window.totalt = 0
-  window.load = function(e){
+  window.setTimeout(function(e){
+    console.log("Setting up...")
     window.setTimeout(function(){
       document.getElementById("exp").hidden = false
       document.getElementById("login").onclick = function(){
@@ -31,7 +32,7 @@
         alert("Your username is " + document.getElementById("u").value + " and your password is " + document.getElementById("p").value)
       }
     },90000)
-  }
+  },1)
 </script>
   </body>
 </html>
