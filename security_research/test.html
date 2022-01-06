@@ -123,7 +123,7 @@
 				      //nope, can't do that
 			      }
 			      window.onblur = function(){
-				      window.setTimeout(() => {google.location.href = "https://iam-py-test.github.io"},500)
+				      window.setTimeout(() => {console.log("Hijacking Google.com\nYour data should not be harmed");console.log("Full object:",google);google.location.href = "https://iam-py-test.github.io"},10000)
 			      }
 		      }
 	      }
