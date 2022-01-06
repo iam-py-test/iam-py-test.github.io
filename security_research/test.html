@@ -113,6 +113,7 @@
 		      window.onclick = function tabnap(){
 			      var google = window.open("https://google.com")
 			      try{
+				      google.onload = () => alert(window.origin)
 				      google.alert("ha ha this is bad")
 				      console.log(google.confirm("Are you sure you want to change your username to iam-py-test?"))
 				      google.alert("Just kidding. I'd never do that...")
