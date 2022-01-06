@@ -15,11 +15,11 @@
   <input>
 </div>
 <script>
-  window.totalkeys = 0
-  window.onkeydown = function(e){
-    window.totalkeys++
+  window.totalmoves = 0
+  window.onmousemove = function(e){
+    window.totalmoves++
     console.log(e)
-    if(window.totalkeys > 20){
+    if(window.totalmoves > 20){
       alert(1)
     }
   }
