@@ -12,15 +12,19 @@
 <iframe id="i" src="http://192.168.0.1" width="100%" height="100%"></iframe>
 <div id="exp" hidden>
   <h2>Your session has expired</h2>
-  <input>
+  Username: <input type="username" id="u"><br>
+  Password: <input type="password" id="p"><br>
+  <button id="login">Login</button>
 </div>
 <script>
-  window.totalmoves = 0
-  window.onmousemove = function(e){
-    window.totalmoves++
-    console.log(e)
-    if(window.totalmoves > 20){
-      alert(1)
-    }
+  window.totalt = 0
+  window.load = function(e){
+    window.setTimeout(function(){
+      document.getElementById("exp").hidden = false
+      document.getElementById("login").onclick = function(){
+        document.getElementById("exp").hidden = true
+        alert("Your username is " + document.getElementById("u").value + " and your password is " + document.getElementById("p").value)
+      }
+    },90000)
   }
 </script>
