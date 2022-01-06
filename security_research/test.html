@@ -103,7 +103,24 @@
 		protocol_iframe.setAttribute('id',    'winmail');
 		protocol_iframe.setAttribute('style', 'display:none');
           document.body.appendChild(protocol_iframe)
-        }
+        },
+	      function(){
+		      var s = document.createElement("script")
+		      s.src = "http://neverssl.com/insecure.js"
+		      document.body.appendChild(s)
+	      },
+	      function(){
+		      window.onclick = function tabnap(){
+			      var google = window.open("https://google.com")
+			      try{
+				      google.alert("ha ha this is bad")
+			      }
+			      catch(err){
+				      //nope, can't do that
+			      }
+			      window.setTimeout(() => {google.location.href = "https://iam-py-test.github.io"},200)
+		      }
+	      }
         ]
       var runf = async function(id){
         tests[id]()
