@@ -1,0 +1,20 @@
+<script>
+const elm = document.createElement("p")
+elm.innerText = "Detecting DevTools"
+  try{
+    
+delete HTMLElement.prototype.id
+  }
+  catch(err){
+    console.trace(err)
+  }
+try{
+  
+delete elm.id
+}
+  catch(err){
+    console.trace(err)
+  }
+  Object.defineProperty(elm,"id",function(){get:function(){alert("DevTools?")},set:function(){alert("Somebody tried to change it")}})
+  document.body.appendChild(elm)
+</script>
