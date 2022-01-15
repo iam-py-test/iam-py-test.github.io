@@ -15,6 +15,6 @@ delete elm.id
   catch(err){
     console.trace(err)
   }
-  Object.defineProperty(elm,"id",function(){get:function(){alert("DevTools?")},set:function(){alert("Somebody tried to change it")}})
+  Object.defineProperty(elm,"id",{get:function(){alert("DevTools?")},set:function(){alert("Somebody tried to change the ID")}})
   document.body.appendChild(elm)
 </script>
