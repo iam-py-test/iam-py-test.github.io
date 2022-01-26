@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Some insecure JS sandboxing</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <h2>Web Worker</h2>
+    <textarea placeholder="Enter some code..." id='code'></textarea>
+    <button id='run'>Run</button>
+    <script>
+      document.getElementById("run").onclick = function(){
+        var code = document.getElementById("code").value.split("\n")
+        var workerCode = `
+        onmessage = async function(m){
+        for(var t = 0;t < m.data.length;t++){
+        console.log(t,eval(m.data[t]))
+        }
+        }
+        `
+        var workerCodeBlob = new Blob([workerCode],{"type":"text/javascript"})
+        var workerCodeURL = URL.createObjectURL(workerCodeBlob)
+        var worker = new Worker(workerCodeURL)
+        worker.postMessage(code)
+		window.setTimeout(function(){
+		worker.terminate()
+		console.log("Worker terminated")
+		},200)
+      }
+    </script>
+  </body>
+</html>
