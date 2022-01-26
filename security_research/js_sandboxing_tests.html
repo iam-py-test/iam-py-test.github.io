@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang='en-US'>
+<html lang="en-US">
   <head>
     <title>Some insecure JS sandboxing</title>
     <meta charset="UTF-8">
@@ -8,13 +8,14 @@
     <h2>Web Worker</h2>
     <textarea placeholder="Enter some code..." id='code'></textarea>
     <button id='run'>Run</button>
+	<div id="result"></div>
     <script>
       document.getElementById("run").onclick = function(){
         var code = document.getElementById("code").value.split("\n")
         var workerCode = `
         onmessage = async function(m){
         for(var t = 0;t < m.data.length;t++){
-        console.log(t,eval(m.data[t]))
+        postMessage(eval(m.data[t]))
         }
         }
         `
@@ -22,10 +23,13 @@
         var workerCodeURL = URL.createObjectURL(workerCodeBlob)
         var worker = new Worker(workerCodeURL)
         worker.postMessage(code)
+		worker.onmessage = function(m){
+		document.getElementById("result").innerHTML = m.data
+		}
 		window.setTimeout(function(){
 		worker.terminate()
 		console.log("Worker terminated")
-		},220)
+		},400)
       }
     </script>
   </body>
