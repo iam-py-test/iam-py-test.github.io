@@ -1,0 +1,9 @@
+#terminal{
+color:white;
+  background: black;
+  
+}
+[contenteditable] {
+  /*https://www.w3schools.com/howto/howto_css_contenteditable_border.asp*/
+  outline: 0px solid transparent;
+}
