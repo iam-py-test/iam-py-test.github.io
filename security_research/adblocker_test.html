@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Adblocker test</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <button id='start'>Start the test</button>
+    <script>
+      document.getElementById('start').onclick = function(){
+      var s = document.createElement('script')
+      s.onload = function(){alert("Blocker failed")}
+        s.onerror=function(){alert("Blocked")}
+        s.src = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js'
+        document.body.appendChild(s)
+      }
+    </script>
+  </body>
+</html>
