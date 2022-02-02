@@ -12,6 +12,19 @@ return (array[pos]||array[0])
     return elm
   },
   cmd:{
+  "network":{
+  "192.168.0.98":{"root":{"username":"root","uid":"0","gid":"0","name":"root","home":"/root","loginshell":"/usr/bin/sh","password":"root"},"ssh":true,"ping":true,"fs":{
+  "/":{parent:"/","files":{"ssh.txt":"You SSHed into this device!!!!"}}
+  }},
+   "192.168.0.32":{"root":{"username":"root","uid":"0","gid":"0","name":"root","home":"/root","loginshell":"/usr/bin/sh","password":"root"},"ssh":true,"ping":true,"fs":{
+  "/":{parent:"/","files":{"ssh.txt":"You SSHed into this device!!!!"}}
+  }}
+  },
+  users:{
+  "root":{"username":"root","uid":"0","gid":"0","name":"root","home":"/root","loginshell":"/usr/bin/sh","password":"root"},
+  "iam-py-test":{"username":"iam-py-test","uid":"21","gid":"139","name":"iam-py-test","home":"/home/iam-py-test","loginshell":"/usr/bin/sh"
+  }
+  },
   fs:{
   "/":{
   "parent":"/",
@@ -23,14 +36,33 @@ return (array[pos]||array[0])
   "dev",
   "tmp",
   "etc",
+  "usr",
+  "root",
   "nope"
   ]
   },
   "/etc":{
   "parent":"/",
   "files":{
-  "hosts":"127.0.0.1       localhost\n# something secret here\n192.168.0.32 secret.local\n# The following lines are desirable for IPv6 capable hosts\n::1     localhost ip6-localhost ip6-loopback\nff02::1 ip6-allnodes\nff02::2 ip6-allrouters"
+  "hosts":"127.0.0.1       localhost\n# something secret here\n192.168.0.32 secret.local\n# The following lines are desirable for IPv6 capable hosts\n::1     localhost ip6-localhost ip6-loopback\nff02::1 ip6-allnodes\nff02::2 ip6-allrouters",
+  "passwd":"Error in loading users"
   },
+  dirs:[]
+  },
+  "/root":{
+  "parent":"/",
+  "files":{
+  },
+  "dirs":[]
+  },
+  "/usr":{
+  "parent":"/",
+  files:{},
+  dirs:["bin"]
+  },
+  "/usr/bin":{
+  "parent":"/usr",
+  files:{"sh":{"program":true}},
   dirs:[]
   },
   "/home":{
@@ -106,6 +138,7 @@ return (array[pos]||array[0])
 }
   },
   alias:{},
+  pid:Math.round(Math.random()*900000).toString().padStart(6,"0"),
   user:"root",
   currentDir:"/",
   suppressCmdEcho:false,
@@ -123,6 +156,22 @@ return (array[pos]||array[0])
     }
     return name
     },
+    resolveWithHOSTs:function(domain){
+    if(this.fs['/etc']['files']['hosts'] === undefined){
+    this.outputElement.innerText += 'HOSTs file not found. Please repair your install of Linux\n'
+    return domain
+    } 
+    var entries = this.fs["/etc"]["files"]["hosts"].split("\n")
+    for(var t = 0;t < entries.length;t++){
+    if(entries[t].startsWith("#")){continue}
+    if(entries[t].split(" ")[1] === domain){
+    return entries[t].split(" ")[0]
+    }
+    }
+    return domain
+    },
+    
+    
     parseDir:function(dirn){
     var dir = dirn
     if(dir === "."){
@@ -148,7 +197,7 @@ return (array[pos]||array[0])
     }
     }
     if(dir.startsWith("/") != true & dir.startsWith(".") != true){
-    if(this.currentDir.endsWith("/") != true){this.currentDir += "/"}
+    if(this.currentDir.endsWith("/") != true){dir = "/" + dir}
     dir = this.currentDir + dir
     if(dir.endsWith("/") === true){
     dir = dir.slice(0,-1)
@@ -156,23 +205,41 @@ return (array[pos]||array[0])
     }
     return dir
     },
+    
+    genPID:function(){
+    return Math.round(Math.random()*900000).toString().padStart(6,"0")
+    },
+    
     getCmdOutput:function(program,args){
+    var currentPID = this.genPID()
     if(program === ''){return ''}
     if(program === "whoami"){
     return this.user + "\n"
     }
     if(program === "echo"){
+    if(args.includes(">")){
+    var f = args.join(" ").split(" > ")[1]
+    this.fs[this.currentDir].files[f] = args.join(" ").split(" > ")[0]
+    return ''
+    }
     return args.join(" ") + "\n"
     }
     if(program === "pwd"){
     return this.currentDir + "\n"
     }
     
+    if(program === 'ps' & args.length === 0){
+    return `PID     TTY     TIME   CMD
+ ${this.pid}    pts/1    00:00:00 sh
+ ${currentPID}  pts/1    00:00:00 ps
+ `
+    }
+    
     try{
     if(program === "mkdir"){
-    dir = args.join(" ")
+    var dir = args.join(" ")
     dir = this.parseDir(dir)
-    cDir = this.currentDir
+    var cDir = this.currentDir
     console.log(dir,dir.split("/"),cDir,this.currentDir)
    
     this.fs[dir] = {"parent":this.currentDir,"files":{},"dirs":[]}
@@ -212,12 +279,15 @@ return (array[pos]||array[0])
     var dir = args.join(' ')
     
     try{
-    if(this.fs[this.parseDir(dir)] === undefined){return "Directory " + dir + " not found\n"}
-    }
-    catch(err){
+    if(this.fs[this.parseDir(dir)] === undefined){
     return "Directory " + dir + " not found\n"
     }
-    this.currentDir = this.parseDir(dir)
+    }
+    catch(err){
+    console.log(err)
+    return "Directory " + dir + " not found\n"
+    }
+    this.currentDir = (this.parseDir(dir)||this.currentDir)
     return ""
     }
     if(program === "ls" & args.length === 0){
@@ -255,9 +325,22 @@ return (array[pos]||array[0])
     if(args.join(" ") === "random" & this.currentDir == "/dev"){
     contents = contents.replace("[[RANDOMCHOICE]]",window.framework.randomChoice(["Welcome to random!","Wait, did the output just change?","Randomness is beauty - Nobody knows","Welcome to /dev/random","Meow - the cat command","Once apon a time, there was a Linux distro...","Hello world"]))
     }
+    console.log(args.join(" "))
+    if(args.join(" ") === 'passwd' & this.currentDir === '/etc'){
+    var users = ''
+    var ul = Object.keys(this.users)
+    for(var t=0;t<ul.length;t++){
+    console.log(ul[t],this.users[ul[t]])
+    users += ul[t] + ":x:" + this.users[ul[t]].uid + ":" + this.users[ul[t]].gid + ":" + this.users[ul[t]].name + ":" + this.users[ul[t]].home + ":" + this.users[ul[t]].loginshell + "\n"
+    }
+    return users 
+    }
+    if(contents === undefined){return "File " + args.join(' ') + " not found"}
+    if((contents||{}).program === true){return "File " + args.join(' ') + " is a program"}
     return contents + "\n"
     }
     catch(err){
+    console.log(err)
     return "File " + args.join(" ") + " not found\n"
     }
     }
@@ -269,6 +352,39 @@ return (array[pos]||array[0])
     if(args[0] === "-a"){
     return "Linux devnull 6.12.0-devnull-amd64 Debian 6.12.0-null (2090-12-11) x86_64 GNU/Linux\n"
     }
+    }
+    
+    if(program === "ping"){
+    try{
+    var addr = args.join(" ")
+    var res = this.resolveWithHOSTs(addr)
+    console.log(addr,res)
+    if(res === "127.0.0.1"){return "Attempting to ping "+addr + "...\nResponse from 127.0.0.1\n"}
+    if(this.network[res] !== undefined & typeof this.network[res] === "object"){
+    var log = "Attempting to ping " + addr + "...\n" 
+    if(this.network[res].ping === true){
+    log += "Response from " + res + "\n"
+    return log
+    }
+    else{
+    log += res + " is not responding to pings"
+    }
+    }
+    else{
+    return "Failed to connect to " + res + "\n"
+    }
+    }
+    catch(err){
+    console.log(err)
+    }
+    }
+    
+    if(program === 'rm'){
+    delete this.fs[this.currentDir]["files"][args.join(' ')]
+    if(args.join(" ") === '*'){
+    this.fs[this.currentDir]["files"] = []
+    }
+    return ""
     }
     
     this.suppressCmdEcho = false

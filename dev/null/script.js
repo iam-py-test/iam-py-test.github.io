@@ -6,6 +6,13 @@ This is the main script file for /dev/null
 window.listenEnter = true
 var inputElement = document.getElementById("input")
 var outputElement = document.getElementById("output")
+
+//if the framework doesn't load
+if(typeof window.framework !== "object"){
+alert("Warning: The framework has not loaded\nThe terminal will be unusable")
+window.framework = {cmd:{parseCommand:function(){return {suppressCommandEcho:false,output:"Error: Framework not loaded\n"}}}}
+}
+
 window.framework.cmd.outputElement = outputElement
 inputElement.addEventListener("keydown",function(event){
 
