@@ -29,7 +29,7 @@
       window.testsblocked = 0
       var s = document.createElement('img')
       s.onload = function(){failed('Blocking of doubleclick ads')}
-        s.onerror=function(){alert("Blocking of doubleclick ads")}
+        s.onerror=function(){blocked("Blocking of doubleclick ads")}
         s.src = 'https://doubleclick.net/favicon.ico'
         document.body.appendChild(s)
       }
