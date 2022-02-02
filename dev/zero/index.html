@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+<head>
+<title>/dev/zero</title>
+<meta charset="UTF-8">
+<style>
+:root{
+color:white;
+background: black;
+overflow:hidden;
+}
+[contenteditable] {
+  /*https://www.w3schools.com/howto/howto_css_contenteditable_border.asp*/
+  outline: 0px solid transparent;
+}
+::selection{
+background:white !important;
+color:black !important;
+}
+#input_line{
+position:absolute;
+z-index:9000;
+top:900;
+}
+</style>
+</head>
+<body>
+<div id="output"></div>
+<div id="input_line" class="cmdline"><span id="shell_head" class="cmdline" contenteditable="false">$ </span><span id="input" spellcheck="false" class="cmdline" contenteditable="true"></span></div>
+<script src='main.js'></script>
+</body>
+</html>
