@@ -7,11 +7,29 @@
   <body>
     <p>WARNING: This page connects to known adservers.</p>
     <button id='start'>Start the test</button>
+    <div id='result'></div>
     <script>
-      document.getElementById('start').onclick = function(){
+
+      "use strict";
+      var blocked = function(testname){
+      var span = document.createElement('span')
+      span.style = 'color:green;'
+      span.innerText = testname + " succeeded. Your blocker blocked it!\n"
+        document.getElementById('result').appendChild(span)
+      }
+         var failed = function(testname){
+      var span = document.createElement('span')
+      span.style = 'color:red;'
+      span.innerText = testname + " failed. Your blocker did not block it\n"
+        document.getElementById('result').appendChild(span)
+      }
+     
+      document.getElementById('start').onclick = function(){ 
+        window.totaltests = 0
+      window.testsblocked = 0
       var s = document.createElement('img')
-      s.onload = function(){alert("Blocker failed")}
-        s.onerror=function(){alert("Blocked")}
+      s.onload = function(){failed('Blocking of doubleclick ads')}
+        s.onerror=function(){alert("Blocking of doubleclick ads")}
         s.src = 'https://doubleclick.net/favicon.ico'
         document.body.appendChild(s)
       }
