@@ -15,8 +15,8 @@
           var resURL = new URL(res.url)
           if(resURL.searchParams.has("utm_source")){
              var r = document.createElement('p')
-          r.textContent = 'Requests with tracking parameters are not being removed'
-          r.style = 'color:red;'
+          r.textContent = 'Requests with tracking parameters are not being filtered'
+          r.style = 'color:#cf0000;'
           document.getElementById('result').appendChild(r)
             return
           }
@@ -30,7 +30,7 @@
            if(resURL.searchParams.has("utm_source") === false & resURL.searchParams.has("nontracker") === false){
              var r = document.createElement('p')
           r.textContent = 'All parameters are being removed. This may break websites'
-          r.style = 'color:red;'
+          r.style = 'color:#cf0000;'
           document.getElementById('result').appendChild(r)
             return
           }
@@ -38,7 +38,7 @@
         }).catch(function(){
           var r = document.createElement('p')
           r.textContent = 'Requests with tracker parameters are being blocked'
-          r.style = 'color:red;'
+          r.style = 'color:#cf0000;'
           document.getElementById('result').appendChild(r)
         })
       }
