@@ -18,3 +18,7 @@ Some rules:
 - any Denial of Service, DDOS, damaging the server it's self, or website defacement is off limits
 - any physical attack against myself or Microsoft is out of scope and may result in legal action
 - attacks only possible when the attack ALREADY HAS ROOT ACCESS on the user's device are probably off limits (the attack has already won)
+- any attempt of sending phishing or malware to me or Microsoft employees (or anyone else really) is OFF LIMITS
+- any attempt to attack my personal/work devices is out of scope except in rare circumstances (please ask for permission beforehand)  
+- exploits in GitHub are not totally off limits, but should be reported to GitHub NOT me
+- please do not report anything other than security issues as a security issue
