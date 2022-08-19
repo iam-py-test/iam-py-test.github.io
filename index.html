@@ -9,7 +9,21 @@
     <meta name="wot-verification" content="4a8b8d8aa61433e71afb"/>
   </head>
   <body>
+<!-- defense against Instagram, see https://krausefx.com/blog/ios-privacy-instagram-and-facebook-can-track-anything-you-do-on-any-website-in-their-in-app-browser -->
+    <span id="iab-pcm-sdk"></span>
+<span id="iab-autofill-sdk"></span>
+    <script>
+      // https://krausefx.com/blog/ios-privacy-instagram-and-facebook-can-track-anything-you-do-on-any-website-in-their-in-app-browser
+      const originalEventListener = document.addEventListener
+document.addEventListener = function(a, b) {
+    if (b.toString().indexOf("messageHandlers.fb_getSelection") > -1) {
+        return null;
+    }
+    return originalEventListener.apply(this, arguments);
+}
 
+    </script>
+    
 Hi! This is my website<br>
 See <a href="/security_research/reports.html">this</a> for my security research.<br>
 If you are looking for the mirrors of my lists, see <a href="https://iam-py-test.github.io/mirrors/">here</a>.
