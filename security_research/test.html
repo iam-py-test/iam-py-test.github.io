@@ -105,11 +105,6 @@
           document.body.appendChild(protocol_iframe)
         },
 	      function(){
-		      var s = document.createElement("script")
-		      s.src = "http://neverssl.com/insecure.js"
-		      document.body.appendChild(s)
-	      },
-	      function(){
 		      window.onclick = function tabnap(){
 			      var google = window.open("https://google.com")
 			      try{
