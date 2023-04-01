@@ -7,9 +7,9 @@ var undefang = function(url){
     var endresult = url
     .replace("[.]",".")
     .replace(/\[\:\/\/\]/g,"://")
+    .replace("[:]//","://")
     .replace("hxxpx:/","https:/")
     .replace("hxxp:/","http:/")
-
    
    console.log(url,endresult);
    return endresult;

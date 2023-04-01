@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<title>localhost port scanner</title>
+		<meta name="referrer" content="no-referrer">
+	</head>
+	<body>
+<h2>Port scanning test</h2>
+		<div>
+			A simple browser-based port scan of your local computer, to see what ports are exposed to websites. This <b>can not</b> tell what is on those ports or if it can be exploited. Be aware that scanning a large number of ports will take time and may slow down your device.
+</div>
+<button id="start">Start test</button><br>
+<p><label>Enter the highest port to scan (i.e. 8080): <input type="number" id="max" placeholder="The highest port to scan..." value="200"></label><br>
+<p>Services on ports <span id="portsdetected">none</span> were detected. <span id="numports">0</span> scanned</p>
+<h2>Log</h1>
+<div id="log">
+</div>
+<script src="./scan.js"></script>
+</body>
+</html>
