@@ -1,4 +1,12 @@
-<script>
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>DevTools detection</title>
+    <meta name="referrer" content="same-origin">
+  </head>
+  <body>
+    <script>
 const elm = document.createElement("p")
 elm.innerText = "Detecting DevTools"
   try{
@@ -18,3 +26,6 @@ delete elm.id
   Object.defineProperty(elm,"id",{get:function(){alert("DevTools?")},set:function(){alert("Somebody tried to change the ID")}})
   document.body.appendChild(elm)
 </script>
+  </body>
+</html>
+

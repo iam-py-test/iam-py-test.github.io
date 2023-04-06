@@ -2,12 +2,15 @@
 <!-- source code at https://github.com/iam-py-test/iam-py-test.github.io/blob/main/404.html -->
 <html lang="en-US">
   <head>
-    <title>Page Not Found </title>
     <meta charset="UTF-8">
-    <meta name="referrer" content="no-referrer">
+    <meta name="referrer" content="same-origin">
+    <title>Page Not Found</title>
     <style>
       a:active{
         color:red;
+      }
+      a{
+        color:blue;
       }
     </style>
   </head>
@@ -20,29 +23,15 @@
   No matter what happened, it is not your fault.</p>
   Here are some links to help you find what you are looking for:
   <p hidden id="back"></p>
-  <p><a href="https://github.com/iam-py-test">My GitHub profile</a></p>
-  <p><a href="/mirrors">Mirrors of various lists</a></p>
-  <p><a href="/friendly-waddle">My blog (not much there)</a></p>
-  <p><a href="https://wikipedia.org/wiki/HTTP_404">Wikipedia about 404s</a></p>
+  <p><a rel="noopener" href="https://github.com/iam-py-test">My GitHub profile</a></p>
+  <p><a rel="noopener" href="/mirrors">Mirrors of various lists</a></p>
+  <p><a rel="noopener" href="/friendly-waddle">My blog (not much there)</a></p>
+  <p><a rel="noopener" href="https://wikipedia.org/wiki/HTTP_404">Wikipedia about 404s</a></p>
   <h4>If the page you are looking for is not here, <a href="/">try going back home</a></h4>
   <p>If every page on my site returns a 404, please <a href="https://github.com/iam-py-test/iam-py-test.github.io/issues">open an issue (or click here)</a></p>  
   <br><br>
   <p>I hope you find the page you were looking for.<br> Note: if you go to 404.html, it will always return this message even thought it exists</p>
 </div>
-    <script>
-      "use strict";
-      var a = document.createElement('a')
-      a.href = document.referrer.toLowerCase()
-      // get the referrer and create a link back to it
-      if(document.referrer !== '' & document.referrer.toLowerCase() !== location.href.toLowerCase()){
-      a.textContent = "Back"
-      document.getElementById('back').appendChild(a)
-      document.getElementById('back').hidden = false
-      }
-      if(new URL(document.referrer.toLowerCase()).hostname === 'iam-py-test.github.io'){
-        //it is my fault the link is broken - inform the user
-        document.getElementById('myfault').textContent = "My bad! It looks like I deleted or moved this page and forgot to update a link."
-      }
-    </script>
+    <script src="js/404.js"></script>
   </body>
 </html>
