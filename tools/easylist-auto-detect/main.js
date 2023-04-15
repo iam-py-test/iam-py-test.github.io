@@ -5,7 +5,7 @@ function pause(time){
     })
 }
 
-(async () => {
+document.getElementById("run").addEventListener("click",async () => {
 const testingelm = document.getElementById("testingelm");
 const dataset = await (await fetch("https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_general_hide.txt")).text();
 const datasetlines = dataset.split("\n");
@@ -30,4 +30,4 @@ for(let i2 = 0; i2 < allids.length;i2++){
     }
 }
 document.getElementById("result").textContent = `${totaldetected} elements were hidden by a content blocker. ${(totaldetected/allids.length)*100}% likelyhood of EasyList generic cosmetic filtering`
-})()
+})
