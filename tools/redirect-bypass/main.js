@@ -1,0 +1,66 @@
+"use strict";
+function returnBase64if(text){
+    try{
+        const decoded = atob(text);
+        if(decoded){
+            return decoded;
+        }
+        return null;
+    }
+    catch(err){
+        return null;
+    }
+}
+
+function isURIencoded(text){
+    try{
+        const decoded = decodeURIComponent(text);
+        return (decoded && decoded !== text);
+    }
+    catch(err){
+        return false;
+    }
+}
+
+function isvalidURL(url){
+    try{
+        return new URL(url) instanceof URL;
+    }
+    catch(err){
+        return false;
+    }
+}
+
+function extractURLs(){
+    var url = document.getElementById("url").value;
+    var parsedURL = new URL(url);
+    var done = false;
+    var foundurls = [];
+    var paramKeys = parsedURL.searchParams.keys();
+    while(done === false){
+        let c = paramKeys.next();
+        done = c.done;
+        let cUrl = parsedURL.searchParams.get(c.value);
+        if(isvalidURL(cUrl)){
+            foundurls.push(cUrl);
+        }
+        let uridecoded = isURIencoded(cUrl);
+        if(uridecoded !== false && isvalidURL(uridecoded)){
+            foundurls.push(uridecoded);
+        }
+        let base64decoded = returnBase64if(cUrl);
+        if(base64decoded !== null && isvalidURL(base64decoded)){
+            foundurls.push(base64decoded);
+        }
+    };
+    const allurls_output = document.getElementById("allurls");
+    foundurls.forEach(function(url){
+        let link = document.createElement("a");
+        link.href = url;
+        link.textContent = url;
+        allurls_output.appendChild(link);
+        allurls_output.appendChild(document.createElement("br"));
+    })
+}
+
+document.getElementById("extract").addEventListener("click",extractURLs)
