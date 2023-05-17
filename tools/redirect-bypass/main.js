@@ -1,4 +1,6 @@
 "use strict";
+const ALLOWED_PROTOCOLS = ["http","https"];
+
 function returnBase64if(text){
     try{
         const decoded = atob(text);
@@ -24,7 +26,17 @@ function isURIencoded(text){
 
 function isvalidURL(url){
     try{
-        return new URL(url) instanceof URL;
+        let parsedURL = new URL(url);
+        if(parsedURL instanceof URL === false){
+            return false;
+        }
+        if(ALLOWED_PROTOCOLS.includes(parsedURL.protocol) === false){
+            return false
+        }
+        if(parsedURL.hostname === ""){
+            return false;
+        }
+        return true;
     }
     catch(err){
         return false;
