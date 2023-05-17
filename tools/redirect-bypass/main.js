@@ -1,5 +1,5 @@
 "use strict";
-const ALLOWED_PROTOCOLS = ["http","https"];
+const ALLOWED_PROTOCOLS = ["http:","https:"];
 
 function returnBase64if(text){
     try{
@@ -31,7 +31,7 @@ function isvalidURL(url){
             return false;
         }
         if(ALLOWED_PROTOCOLS.includes(parsedURL.protocol) === false){
-            return false
+            return false;
         }
         if(parsedURL.hostname === ""){
             return false;
@@ -70,6 +70,7 @@ function extractURLs(){
         let link = document.createElement("a");
         link.href = url;
         link.textContent = url;
+        link.rel = "noopener"
         allurls_output.appendChild(link);
         allurls_output.appendChild(document.createElement("br"));
     })
