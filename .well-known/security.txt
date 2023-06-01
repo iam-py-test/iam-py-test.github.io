@@ -1,5 +1,8 @@
 Contact: mailto:iam-py-test@protonmail.com
-Expires: 2023-05-31T16:00:00.000Z
+Contact: https://matrix.to/#/@iam-py-test1:matrix.org
+Expires: 2024-07-05T16:00:00.000Z
+Encryption: https://iam-py-test.github.io/iam-py-test@protonmail.com public key.asc
 Acknowledgments: https://github.com/iam-py-test/iam-py-test.github.io/blob/main/security_hall_of_fame.md
 Preferred-Languages: en
+Canonical: https://iam-py-test.github.io/.well-known/security.txt
 Policy: https://github.com/iam-py-test/iam-py-test.github.io/blob/main/SECURITY.md
