@@ -83,7 +83,7 @@ function extractURLs(){
             foundurls.push(base64decoded);
         }
     };
-    foundurls.concat(extractFromPath(parsedURL.pathname));
+    foundurls.concat(extractFromPath(url));
     const allurls_output = document.getElementById("allurls");
     foundurls.forEach(function(url){
         let link = document.createElement("a");
