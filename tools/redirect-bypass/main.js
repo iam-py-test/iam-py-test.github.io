@@ -65,8 +65,9 @@ function extractURLs(){
     var url = document.getElementById("url").value;
     var parsedURL = new URL(url);
     var done = false;
-    var foundurls = [];
+    var foundurls = extractFromPath(url);
     var paramKeys = parsedURL.searchParams.keys();
+    console.log(foundurls)
     while(done === false){
         let c = paramKeys.next();
         done = c.done;
@@ -83,7 +84,7 @@ function extractURLs(){
             foundurls.push(base64decoded);
         }
     };
-    foundurls.concat(extractFromPath(url));
+    console.log(foundurls)
     const allurls_output = document.getElementById("allurls");
     foundurls.forEach(function(url){
         let link = document.createElement("a");
