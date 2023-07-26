@@ -1,5 +1,6 @@
 "use strict";
 const ALLOWED_PROTOCOLS = ["http:","https:"];
+const FIND_URLS_IN_PATH = /https?:%2F%2[^\/]*/;
 
 function returnBase64if(text){
     try{
@@ -43,6 +44,23 @@ function isvalidURL(url){
     }
 }
 
+function extractFromPath(path){
+    let foundurls = [];
+    let possibleurls = FIND_URLS_IN_PATH.exec(path);
+    if(!possibleurls){
+        return [];
+    }
+    possibleurls.forEach(function (maybeURL){
+        if(isURIencoded(maybeURL)){
+            let decoded = decodeURIComponent(maybeURL);
+            if(isvalidURL(decoded) === true){
+                foundurls.push(decoded);
+            }
+        }
+    });
+    return foundurls;
+}
+
 function extractURLs(){
     var url = document.getElementById("url").value;
     var parsedURL = new URL(url);
@@ -65,6 +83,7 @@ function extractURLs(){
             foundurls.push(base64decoded);
         }
     };
+    foundurls.concat(extractFromPath(parsedURL.pathname));
     const allurls_output = document.getElementById("allurls");
     foundurls.forEach(function(url){
         let link = document.createElement("a");
