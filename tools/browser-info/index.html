@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="referrer" content="same-origin">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self'; worker-src blob: 'self'">
+        <title>Browser info</title>
+    </head>
+    <body>
+        <h1>Browser info</h1>
+        <div>
+            <p>User agent: <span id="ua"></span></p>
+            <p>User agent (worker): <span id="ua_worker"></span></p>
+            <p>User agent (iframe): <span id="ua_iframe"></span></p>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>

@@ -5,6 +5,7 @@ const MIN_PORT = 1; // change to something higher if you want to scan ports only
 
 const portsdetectedelm = document.getElementById("portsdetected");
 const portsscannedelm = document.getElementById("numports");
+const detectedportslist = document.getElementById("found");
 
 var log = function(m,ok){
     var e = document.createElement("span")
@@ -22,11 +23,11 @@ var log = function(m,ok){
 var test = async function(port){
     var det = false
     try{
-        await fetch("http://localhost:" + port,{mode:"no-cors"})
-        window.detectedon.push(port)
-        console.log("Detected on port " + port, false)
-        log(`Detected on ${port}`,false)
-        det = true
+        await fetch("http://localhost:" + port,{mode:"no-cors"});
+        window.detectedon.push(port);
+        console.log("Detected on port " + port, false);
+        log(`Detected on ${port}`,false);
+        det = true;
     }
     catch(err){
         console.log("Not detected on port " + port,true)
@@ -36,7 +37,15 @@ var test = async function(port){
     window.total[port] = det
     window.total.length += 1
     window.totalscanned += 1
-    portsdetectedelm.textContent = window.detectedon.join(" , ");
+    portsdetectedelm.textContent = window.detectedon.length;
+    detectedportslist.textContent = "";
+    window.detectedon.forEach(function(port){
+        let port_elm = document.createElement("a");
+        port_elm.href = `https://www.grc.com/port_${port}.htm`;
+        port_elm.textContent = port;
+        detectedportslist.appendChild(port_elm);
+        detectedportslist.appendChild(document.createElement("br"));
+    })
     portsscannedelm.textContent = window.totalscanned;
 }
 
@@ -47,11 +56,11 @@ function getMaxNumber(){
             return DEFAULT_PORT
         }
         else{
-            return inputtednumber
+            return inputtednumber;
         }
     }
     catch(err){ /*if it isn't a valid number, return the default value*/
-    return DEFAULT_PORT
+    return DEFAULT_PORT;
     }
 }
 
