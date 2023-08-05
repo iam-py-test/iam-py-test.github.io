@@ -37,7 +37,7 @@ catch(err){
 try{
 	window.setTimeout(function(){
 		//make sure the other fetch request has already gone through or failed
-	fetch("/test.txt").catch(function(){
+	fetch("test.txt").catch(function(){
 		document.getElementById('result').textContent = "Unable to load test file. Please modify the settings in your content blocker to allow https://iam-py-test.github.io/tools/test.txt"
 	})
 	},10)
