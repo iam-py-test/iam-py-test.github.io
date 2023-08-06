@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- this page is a base for other pages -->
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="referrer" content="same-origin">
+        <title>Form</title>
+    </head>
+    <body>
+        <div>Form</div>
+        <form action="./form.html">
+            <input type="username">
+            <input type="password">
+            <input type="submit">
+        </form>
+        <div id="secret_div">
+            Not loaded
+        </div>
+        <p id="secret_count"></p>
+        <script>
+            const secretdiv = document.getElementById("secretdiv");
+            const secret_color = "red";
+            const secret = "This is very secret. Spies everywhere want it. Don't let it be stolen. This div will be deleted from the DOM in 5 years."
+            secretdiv.textContent = secret;
+            document.body.style.background = secret_color;
+            const secret_image = document.createElement("img");
+            secret_image.src = "secret.png";
+            document.body.appendChild(secret_image);
+            const secret_counter = document.getElementById("secret_count")
+            window.secret_count = 0
+            window.setInterval(function(){
+                window.secret_count += 1;
+                secret_counter.textContent = window.secret_count;
+            }, 100)
+        </script>
+    </body>
+</html>
