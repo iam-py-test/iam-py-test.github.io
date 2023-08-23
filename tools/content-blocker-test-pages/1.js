@@ -1,4 +1,4 @@
-fetch("/1.json").then(async (r) => {
+fetch("1.json").then(async (r) => {
     console.log(r);
     console.log(await r.json())
     console.log(await r.text())
