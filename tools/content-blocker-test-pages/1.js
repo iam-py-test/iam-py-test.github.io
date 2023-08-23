@@ -1,7 +1,8 @@
 fetch("1.json").then(async (r) => {
     console.log(r);
+    let c = r.clone()
     console.log(await r.json())
-    console.log(await r.text())
+    console.log(await c.text())
 })
 var x = new XMLHttpRequest()
 x.open("GET", "1.json")
