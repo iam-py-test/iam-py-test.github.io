@@ -1,0 +1,9 @@
+{
+    "bad": "evil",
+    "good": true,
+    "goodbad": [],
+    "Bad": false,
+    "sub": {
+        "evil": 1
+    }
+}

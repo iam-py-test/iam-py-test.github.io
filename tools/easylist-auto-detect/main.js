@@ -20,11 +20,39 @@ function pause(time){
 	})
 }
 
+const filterlist_keys = Object.keys(FILTERLIST_URLS);
+const test_for = document.getElementById("test_for");
+for(let i = 0; i < filterlist_keys.length; i++){
+	let filterlist_line = document.createElement("p");
+	let filterlist_checkbox = document.createElement("input");
+	filterlist_line.textContent = filterlist_keys[i] + ": ";
+	filterlist_checkbox.id = filterlist_keys[i];
+	filterlist_checkbox.checked = true;
+	filterlist_checkbox.type = "checkbox";
+	filterlist_line.appendChild(filterlist_checkbox)
+	test_for.appendChild(filterlist_line)
+}
+
+function get_enabled_lists(){
+	let keys = Object.keys(FILTERLIST_URLS);
+	let enabled = [];
+	for(let i = 0; i < keys.length; i++){
+		try{
+			let elm = document.getElementById(keys[i]);
+			if(elm.checked){
+				enabled.push(keys[i])
+			}
+		}
+		catch(err){}
+	}
+	return enabled;
+}
+
 document.getElementById("run").addEventListener("click",async () => {
 	console.log("running test")
 	const testingelm = document.getElementById("testingelm");
 	const resultelm = document.getElementById("result");
-	const keys = Object.keys(FILTERLIST_URLS);
+	const keys = get_enabled_lists();
 	window.total_filters = {};
 	for(let i = 0; i < keys.length; i++){
 		let curl = FILTERLIST_URLS[keys[i]];
