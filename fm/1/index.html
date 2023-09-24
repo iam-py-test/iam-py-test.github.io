@@ -1,8 +1,10 @@
+This is some content. <a id="adhref" href="https://example.com/ads/?fm_source=evilnesssssss" style="color: black;text-decoration-line: none;">More content linked to an ad</a><a onmouseenter="this.href='/ads'" onmouseleave="this.href=''">More content secretly an ad</a>
+<iframe src="fm_ads.htm"></iframe>
 <script>
     window.onload = function(){
         try{
             let num = new Number(window.name);
-            if(Number.isNaN(num)){return};
+            if(Number.isNaN(num)){num = 0};
             num += 1
             if(num == 5){
                 alert("Do not reload the page again");
