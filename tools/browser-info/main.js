@@ -12,12 +12,12 @@ const log = (...msg) => {
     console.log.call(console,`[${context || "main"}]`, ...msg);
 }
 
-const getElmById = document.getElementById.bind(document);
-const createElm = document.createElement.bind(document)
-const user_agent = getElmById("ua");
-const user_agent_worker = getElmById("worker");
-const user_agent_iframe = getElmById("iframe");
-const ua_nav = navigator.userAgent;
+var getElmById = document.getElementById.bind(document);
+var createElm = document.createElement.bind(document)
+var user_agent = getElmById("ua");
+var user_agent_worker = getElmById("worker");
+var user_agent_iframe = getElmById("iframe");
+var ua_nav = navigator.userAgent;
 
 user_agent.textContent = ua_nav;
 

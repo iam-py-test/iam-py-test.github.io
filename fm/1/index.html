@@ -1,0 +1,24 @@
+<script>
+    window.onload = function(){
+        try{
+            let num = new Number(window.name);
+            if(Number.isNaN(num)){return};
+            num += 1
+            if(num == 5){
+                alert("Do not reload the page again");
+            };
+            if(num > 6){
+                location.href = "https://example.com#blocked"
+            }
+        }
+        catch(err){}
+    }
+    window.addEventListener("contextmenu", function(e){e.preventDefault()});
+    window.setInterval(function(){
+        debugger;
+        console.clear();
+    }, 1000);
+    if(window.self!=window.top){
+        location.href="https://blocked.invalid";
+    }
+</script>

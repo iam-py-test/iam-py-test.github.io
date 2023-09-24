@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<div>
+    <script>
+        window.addEventListener("contextmenu", function(e){e.preventDefault()});
+        window.setInterval(function(){
+            debugger;
+            console.clear();
+        }, 1000);
+        if(window.self==window.top){
+            location.href="https://blocked.invalid";
+        }
+    </script>
+</div>
