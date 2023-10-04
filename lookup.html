@@ -2,21 +2,31 @@
 <html lang="en-US">
   <head>
     <title>Lookup results for domain</title>
+    <style>
+      a {
+        color:blue;
+      }
+    </style>
   </head>
   <body>
     <code>This page is a work in progress</code>
     <form>
       <h3>Enter a domain to lookup</h3>
-      <input name="q" placeholder="Enter a domain...">
+      <input name="q" id="q" placeholder="Enter a domain...">
       <input type="submit">
     </form>
     
     <div>
       <h3>Results</h3>
-      <p>iam-py-test Antimalware: <span id='my-am'></span></p>
-      <p>Known domain owner: <span id="known"></span></p>
-      <p>Rating: <span id="rate"></span></p>
-      <a id="norton">Norton report</a>
+      <p>The malicious website blocklist: <span id='my-am'></span></p>
+      <p>First added: <span id="added"></span></p>
+      <p>Removed: <span id="removed"></span></p>
+      <p>Last checked: <span id="last_check"></span></p>
+      <p>Check status: <span id="check_status"></span></p>
+      <p>Check counter: <span id="counter"></span></p>
+      <p>Domain owner: <span id="known"></span></p>
+      <p>Allowlisted: <span id="allowlist"></span></p>
+      <p><a href="https://github.com/hagezi/dns-blocklists#tif">HaGeZi's Threat Intelligence Feeds DNS Blocklist</a> (includes the MWB): <span id="tif"></span></p>
       <script src="/js/checkup.js"></script>
     </div>
   </body>

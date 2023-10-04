@@ -139,6 +139,7 @@ return (array[pos]||array[0])
   },
   alias:{},
   pid:Math.round(Math.random()*900000).toString().padStart(6,"0"),
+  uid: Math.round(Math.random()*1001),
   user:"root",
   currentDir:"/",
   suppressCmdEcho:false,
@@ -234,6 +235,11 @@ return (array[pos]||array[0])
  ${currentPID}  pts/1    00:00:00 ps
  `
     }
+
+    if(program === "id"){
+      return `uid=${this.uid}(${this.user}) gid=${this.uid}(${this.user}) groups=${this.uid}(${this.user})
+`
+    }
     
     try{
     if(program === "mkdir"){
@@ -241,7 +247,7 @@ return (array[pos]||array[0])
     dir = this.parseDir(dir)
     var cDir = this.currentDir
     console.log(dir,dir.split("/"),cDir,this.currentDir)
-   
+   console.log(this.currentDir, this.fs[this.currentDir])
     this.fs[dir] = {"parent":this.currentDir,"files":{},"dirs":[]}
     this.fs[this.currentDir].dirs.push(dir.split("/")[dir.split("/").length-1])
     return ""
@@ -254,18 +260,18 @@ return (array[pos]||array[0])
     
     try{
     if(program === 'rmdir'){
-    oDir = args.join(' ')
-    dir = this.parseDir(args.join(' '))
-    delete this.fs[dir]
-    for(var t = 0;t < this.fs[this.currentDir].dirs.length;t++){
-    console.log(dir.split("/")[dir.split("/").length-1])
-    if(this.fs[this.currentDir].dirs[t] === dir.split("/")[dir.split("/").length-1]){
-    console.log(this.fs[this.currentDir].dirs[t],t)
- console.log("rl",this.fs[this.currentDir].dirs.splice(t,1))
-    
-    }
-    }
-    return ''
+      var oDir = args.join(' ')
+      var dir = this.parseDir(args.join(' '))
+      delete this.fs[dir]
+      for(var t = 0;t < this.fs[this.currentDir].dirs.length;t++){
+      console.log(dir.split("/")[dir.split("/").length-1])
+      if(this.fs[this.currentDir].dirs[t] === dir.split("/")[dir.split("/").length-1]){
+      console.log(this.fs[this.currentDir].dirs[t],t)
+  console.log("rl",this.fs[this.currentDir].dirs.splice(t,1))
+      
+      }
+      }
+      return ''
     }
     }
     catch(err){console.trace(err)}

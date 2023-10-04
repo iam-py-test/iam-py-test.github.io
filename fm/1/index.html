@@ -1,6 +1,26 @@
 This is some content. <a id="adhref" href="https://example.com/ads/?fm_source=evilnesssssss" style="color: black;text-decoration-line: none;">More content linked to an ad</a><a onmouseenter="this.href='/ads'" onmouseleave="this.href=''">More content secretly an ad</a>
-<iframe src="fm_ads.htm"></iframe>
+<iframe src="fm_ads.htm" id="ssss"></iframe>
 <script>
+    const grw=console;
+    const gwrgwq="clear";const xgwsdgsgs='s';const feqqqgwabga=[xgwsdgsgs,'s'.toString()];const gwrrw=xgwsdgsgs+xgwsdgsgs;
+    const ssss=document; const sssss=feqqqgwabga.join(gwrrw);
+    const wgijo=document.getElementById.bind(document);
+    const gweeeeege=wgijo(sssss)
+    window.sysok = false;
+    let chrs=["a",'b','c','d','e','f','j','l','m','n','o','p','q','RSS','v','w','x','y','z'];
+    let ac = "";
+    while(ac.length < 15){
+        ac+=chrs[Math.round(Math.random()*10)]
+    }
+    
+    const wrk_auth=ac+"worker";
+    const wrkc = `adb_detected=false;fetch("-ad-bottom-").catch(() => {adb_detected=true});const auth="${wrk_auth}";console.clear();debugger;addEventListener("message", function(e){postMessage({a:auth,d:adb_detected,x:e.data})})`;
+    const wrkb = new Blob([wrkc], {"type":"text/javascript"});
+    const wrku = URL.createObjectURL(wrkb);
+    const wrk=new Worker(wrku)
+    wrk.addEventListener("message", function(e){
+        if(e.data.a!=wrk_auth || e.data.d === true || e.data.x!="checkup"){window.sysok=false;alert("Adblock detected")}
+    })
     window.onload = function(){
         try{
             let num = new Number(window.name);
@@ -12,15 +32,27 @@ This is some content. <a id="adhref" href="https://example.com/ads/?fm_source=ev
             if(num > 6){
                 location.href = "https://example.com#blocked"
             }
+            window.name = num;
         }
         catch(err){}
-    }
-    window.addEventListener("contextmenu", function(e){e.preventDefault()});
-    window.setInterval(function(){
+        window.setInterval(function(){
+        if(window.sysok===false){alert("Not ok");location.href = "https://example.com#blocked"}
         debugger;
-        console.clear();
+        grw[gwrgwq]();
+        wrk.postMessage("checkup")
+        if(window.getComputedStyle(gweeeeege).display==="none" || gweeeeege.hidden==true||gweeeeege.checkVisibility()===false){
+            window.sysok=false;
+            alert("Adblock detected");
+            history.replaceState(null, null, "/");
+            location.href = "https://example.com#blocked"
+        }
+        window.sysok = true;
     }, 1000);
+    }
+    window.addEventListener("contextmenu", function(e){e.preventDefault();window.sysok=false;});
     if(window.self!=window.top){
+        alert("iframe")
+        window.sysok = false;
         location.href="https://blocked.invalid";
     }
 </script>
