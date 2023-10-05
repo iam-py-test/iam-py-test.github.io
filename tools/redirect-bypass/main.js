@@ -58,6 +58,14 @@ function extractFromPath(path){
             }
         }
     });
+    let maybeurlpartshttps = "https://" + path.split("https://")[0];
+    if(isvalidURL(maybeurlpartshttps)){
+        foundurls.push(maybeurlpartshttps)
+    }
+    let maybeurlpartshttp = "http://" + path.split("http://")[0];
+    if(isvalidURL(maybeurlpartshttp)){
+        foundurls.push(maybeurlpartshttp)
+    }
     return foundurls;
 }
 
