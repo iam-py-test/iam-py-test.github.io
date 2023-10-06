@@ -7,10 +7,13 @@ uBo: "https://ublockorigin.github.io/uAssets/filters/filters.txt",
 EasyList_chat: "https://ublockorigin.github.io/uAssets/thirdparties/easylist-chat.txt",
 AdGuard_Mobile: "https://filters.adtidy.org/extension/ublock/filters/11.txt",
 AdGuard_Base: "https://filters.adtidy.org/extension/ublock/filters/2_without_easylist.txt",
+AdGuard_Cyrillic: "https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/CyrillicFilters/common-sections/general_elemhide.txt",
+AdGuard_Chinese: "https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/ChineseFilter/sections/general_elemhide.txt",
 EasyList_Cookie: "https://ublockorigin.github.io/uAssets/thirdparties/easylist-cookies.txt",
 adblock_list_for_finland: "https://raw.githubusercontent.com/finnish-easylist-addition/finnish-easylist-addition/gh-pages/Finland_adb.txt",
 EasyList_Notifications: "https://ublockorigin.github.io/uAssets/thirdparties/easylist-notifications.txt",
-Brave_FirstParty_filters: "https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/brave-firstparty.txt"
+Brave_FirstParty_filters: "https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/brave-firstparty.txt",
+Dandelion_Sprout_s_Nordic_filters: "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianList.txt"
 }
 const ELM_NAME_REGEX = /^##[a-zA-Z\-]*$/;
 

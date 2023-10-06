@@ -59,6 +59,7 @@ function extractFromPath(path){
         }
     });
     let maybeurlpartshttps = "https://" + path.split("https://")[0];
+    console.log(maybeurlpartshttps)
     if(isvalidURL(maybeurlpartshttps)){
         foundurls.push(maybeurlpartshttps)
     }
