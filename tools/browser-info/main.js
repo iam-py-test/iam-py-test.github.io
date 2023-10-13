@@ -42,7 +42,7 @@ try{
         worker.onmessage = (msg) => {
         log(msg);
         var cmd = msg.data.cmd;
-        var res = msg.data.msg;
+        var res = msg.data.res;
         console.log(cmd, res)
         if(cmd === "get_ua"){
             user_agent_worker.textContent = res;
