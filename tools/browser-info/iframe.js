@@ -14,7 +14,7 @@ const log = (...msg) => {
 
 window.onmessage = function(event){
     log(event)
-    if(typeof event.data === "object"){
+    if(typeof event.data !== "object"){
         return
     };
     var res = "";
