@@ -40,7 +40,7 @@ iframe.contentWindow.addEventListener("load", () => {
 try{
     var worker = new Worker("worker.js");
         worker.onmessage = (msg) => {
-        log(msg);
+        //log(msg);
         var cmd = msg.data.cmd;
         var res = msg.data.res;
         console.log(cmd, res)

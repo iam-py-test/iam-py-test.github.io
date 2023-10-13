@@ -13,7 +13,7 @@ const log = (...msg) => {
 }
 
 addEventListener("message", (event) => {
-    log(event);
+    //log(event);
     if(typeof(event.data) !== "object"){
         log("Wanted object, got ", event.data)
     }
@@ -25,6 +25,6 @@ addEventListener("message", (event) => {
     if(cmd === "get_lang"){
         res = navigator.language;
     }
-    log(res)
+    //log(res)
     postMessage({"cmd": cmd, "res": res});
 });
