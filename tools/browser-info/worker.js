@@ -25,5 +25,6 @@ addEventListener("message", (event) => {
     if(cmd === "get_lang"){
         res = navigator.language;
     }
+    log(res)
     postMessage({"cmd": cmd, "res": res});
 });
