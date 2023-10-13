@@ -15,8 +15,8 @@ const log = (...msg) => {
 var getElmById = document.getElementById.bind(document);
 var createElm = document.createElement.bind(document)
 var user_agent = getElmById("ua");
-var user_agent_worker = getElmById("worker");
-var user_agent_iframe = getElmById("iframe");
+var user_agent_worker = getElmById("ua_worker");
+var user_agent_iframe = getElmById("ua_iframe");
 var ua_nav = navigator.userAgent;
 var toStringE = getElmById("tostring");
 
