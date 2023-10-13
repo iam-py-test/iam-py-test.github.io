@@ -18,8 +18,10 @@ var user_agent = getElmById("ua");
 var user_agent_worker = getElmById("worker");
 var user_agent_iframe = getElmById("iframe");
 var ua_nav = navigator.userAgent;
+var toStringE = getElmById("tostring");
 
 user_agent.textContent = ua_nav;
+toStringE.textContent = (alert.toString().includes("\n")) ? "Firefox" : "Chromium"
 
 // get user agent from iframe
 var iframe = createElm("iframe");
