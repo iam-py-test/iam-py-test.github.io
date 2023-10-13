@@ -43,6 +43,7 @@ try{
         log(msg);
         var cmd = msg.data.cmd;
         var res = msg.data.msg;
+        console.log(cmd, res)
         if(cmd === "get_ua"){
             user_agent_worker.textContent = res;
         };
