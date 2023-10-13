@@ -21,8 +21,9 @@ window.onmessage = function(event){
     if(event.data.cmd === "get_ua"){
         res = navigator.userAgent;
     }
-    if(cmd === "get_lang"){
+    if(event.data.cmd === "get_lang"){
         res = navigator.language;
     }
+    log(res)
     window.top.postMessage({"cmd": event.data.cmd, "res": res});
 };
