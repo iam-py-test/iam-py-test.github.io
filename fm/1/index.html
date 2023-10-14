@@ -38,7 +38,7 @@ This is some content. <a id="adhref" href="https://example.com/ads/?fm_source=ev
     const wrk=new Worker(wrku)
     try{gr3owgio()}catch(e){}
     wrk.addEventListener("message", function(e){
-        if(e.data.a!=wrk_auth || e.data.d === true || e.data.x!="checkup"){window.sysok=false;alert("Adblock detected")}
+        if(e.data.a!=wrk_auth || e.data.d === true || e.data.x!="checkup"){window.sysok=false;alert("Adblock detected - worker")}
     })
     try{gr3owgio()}catch(e){}
     try{URL.revokeObjectURL(wrku)}catch(err){}
