@@ -1,27 +1,50 @@
 This is some content. <a id="adhref" href="https://example.com/ads/?fm_source=evilnesssssss" style="color: black;text-decoration-line: none;">More content linked to an ad</a><a onmouseenter="this.href='/ads'" onmouseleave="this.href=''">More content secretly an ad</a>
+<button id="contr" onclick="open('popup.html')">Continue reading</button>
+<div id="hiddenc" hidden>
+    Hidden content
+</div>
 <iframe src="fm_ads.htm" id="ssss"></iframe>
 <script>
+    if(location.hostname!="iam-py-test.github.io"){location="/"};
+    if(location.pathname/*ge9w8gew*/!="/fm/1"&&location.pathname!="/fm/1/index.html"){location="/"};
+    try{gr3owgio()}catch(e){}
     const grw=console;
+    try{gr3owgio()}catch(e){}
     const gwrgwq="clear";const xgwsdgsgs='s';const feqqqgwabga=[xgwsdgsgs,'s'.toString()];const gwrrw=xgwsdgsgs+xgwsdgsgs;
     const ssss=document; const sssss=feqqqgwabga.join(gwrrw);
+    try{gr3owgio()}catch(e){}
     const wgijo=document.getElementById.bind(document);
+    try{gr3owgio()}catch(e){}
     const gweeeeege=wgijo(sssss)
+    try{gr3owgio()}catch(e){}
     window.sysok = false;
+    try{gr3owgio()}catch(e){}
     let chrs=["a",'b','c','d','e','f','j','l','m','n','o','p','q','RSS','v','w','x','y','z'];
+    try{gr3owgio()}catch(e){}
     let ac = "";
+    try{gr3owgio()}catch(e){}
     while(ac.length < 15){
         ac+=chrs[Math.round(Math.random()*10)]
     }
     
     const wrk_auth=ac+"worker";
+    try{gr3owgio()}catch(e){}
     const wrkc = `adb_detected=false;fetch("-ad-bottom-").catch(() => {adb_detected=true});const auth="${wrk_auth}";console.clear();debugger;addEventListener("message", function(e){postMessage({a:auth,d:adb_detected,x:e.data})})`;
+    try{gr3owgio()}catch(e){}
     const wrkb = new Blob([wrkc], {"type":"text/javascript"});
+    try{gr3owgio()}catch(e){}
     const wrku = URL.createObjectURL(wrkb);
+    try{gr3owgio()}catch(e){}
     const wrk=new Worker(wrku)
+    try{gr3owgio()}catch(e){}
     wrk.addEventListener("message", function(e){
         if(e.data.a!=wrk_auth || e.data.d === true || e.data.x!="checkup"){window.sysok=false;alert("Adblock detected")}
     })
+    try{gr3owgio()}catch(e){}
+    try{URL.revokeObjectURL(wrku)}catch(err){}
+    try{gr3owgio()}catch(e){}
     window.onload = function(){
+        try{gr3owgio()}catch(e){}
         try{
             let num = new Number(window.name);
             if(Number.isNaN(num)){num = 0};
@@ -35,24 +58,55 @@ This is some content. <a id="adhref" href="https://example.com/ads/?fm_source=ev
             window.name = num;
         }
         catch(err){}
+        try{gr3owgio()}catch(e){}
+        window.t = Math.round(new Date().getTime()/10000) 
+        try{gr3owgio()}catch(e){}
         window.setInterval(function(){
+            window.t = Math.round(new Date().getTime()/10000)
+            try{gr3owgio()}catch(e){}
         if(window.sysok===false){alert("Not ok");location.href = "https://example.com#blocked"}
+        try{gr3owgio()}catch(e){}
         debugger;
+        try{gr3owgio()}catch(e){}
         grw[gwrgwq]();
         wrk.postMessage("checkup")
+        try{gr3owgio()}catch(e){};
         if(window.getComputedStyle(gweeeeege).display==="none" || gweeeeege.hidden==true||gweeeeege.checkVisibility()===false){
             window.sysok=false;
+            try{gr3owgio()}catch(e){}
             alert("Adblock detected");
+            try{gr3owgio()}catch(e){}
             history.replaceState(null, null, "/");
+            try{gr3owgio()}catch(e){}
             location.href = "https://example.com#blocked"
+            try{gr3owgio()}catch(e){}
         }
-        window.sysok = true;
+        window.sysok = true;try{gr3owgio()}catch(e){}
     }, 1000);
     }
     window.addEventListener("contextmenu", function(e){e.preventDefault();window.sysok=false;});
     if(window.self!=window.top){
+        try{gr3owgio()}catch(e){}
         alert("iframe")
+        try{gr3owgio()}catch(e){}
         window.sysok = false;
+        try{gr3owgio()}catch(e){}
         location.href="https://blocked.invalid";
+        try{gr3owgio()}catch(e){}
     }
+    try{gr3owgio()}catch(e){}
+
+    document.getElementById(
+
+
+
+    'contr'
+    ).addEventListener('click', function(e){
+        if(window.t !== Math.round(new Date().getTime()/10000)){
+            alert("Checkup missed")
+            return;
+        }
+        document.getElementById("hiddenc").hidden = false;
+        this.remove();
+    })
 </script>
