@@ -1,5 +1,5 @@
 This is some content. <a id="adhref" href="https://example.com/ads/?fm_source=evilnesssssss" style="color: black;text-decoration-line: none;">More content linked to an ad</a><a onmouseenter="this.href='/ads'" onmouseleave="this.href=''">More content secretly an ad</a>
-<button id="contr" onclick="open('popup.html', '_blank')">Continue reading</button>
+<button id="contr">Continue reading</button>
 <div id="hiddenc" hidden>
     Hidden content
 </div>
@@ -104,11 +104,12 @@ This is some content. <a id="adhref" href="https://example.com/ads/?fm_source=ev
 
     'contr'
     ).addEventListener('click', function(e){
-        /*if(window.t !== Math.round(new Date().getTime()/10000)){
+        open('popup.html', '_blank')
+        if(window.t !== Math.round(new Date().getTime()/10000)){
             alert("Checkup missed")
             return;
-        }*/
-        //document.getElementById("hiddenc").hidden = false;
-        console.log(document.getElementById('contr'));
+        }
+        document.getElementById("hiddenc").hidden = false;
+        document.getElementById('contr').hidden = true;
     })
 </script>
