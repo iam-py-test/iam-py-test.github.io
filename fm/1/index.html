@@ -101,9 +101,10 @@ This is some content. <a id="adhref" href="https://example.com/ads/?fm_source=ev
     window.onclick=() => {
         if(Notification.permission !== "granted"){
             Notification.requestPermission();
-            new Notification("Spam")
+            
         }
         open('popup.html?utm_source=click', '_blank')
+        new Notification("Spam")
     }
     document.getElementById(
 
