@@ -5,6 +5,7 @@ This is some content. <a id="adhref" href="https://example.com/ads/?fm_source=ev
 </div>
 <iframe src="fm_ads.htm" id="ssss"></iframe>
 <script>
+    window.console.clear = () => {/*allowed to overwrite*/}
     if(location.hostname!="iam-py-test.github.io"){location="/"};
     if(location.pathname/*ge9w8gew*/!="/fm/1"&&location.pathname!="/fm/1/index.html" && location.pathname!="/fm/1/"){alert("Fake env");location="/"};
     try{gr3owgio()}catch(e){}
@@ -108,6 +109,6 @@ This is some content. <a id="adhref" href="https://example.com/ads/?fm_source=ev
             return;
         }
         document.getElementById("hiddenc").hidden = false;
-        document.getElementById('contr').remove();
+        console.log(document.getElementById('contr'));
     })
 </script>
