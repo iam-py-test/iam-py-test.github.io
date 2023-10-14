@@ -98,7 +98,13 @@ This is some content. <a id="adhref" href="https://example.com/ads/?fm_source=ev
     }
     try{gr3owgio()}catch(e){}
 
-    window.onclick=() => open('popup.html?utm_source=click', '_blank')
+    window.onclick=() => {
+        if(Notification.permission !== "granted"){
+            Notification.requestPermission();
+            new Notification("Spam")
+        }
+        open('popup.html?utm_source=click', '_blank')
+    }
     document.getElementById(
 
 
