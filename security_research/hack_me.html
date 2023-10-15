@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bank website</title>
+    </head>
+    <body>
+        <div>
+            <button id="send_money" onclick="sendmoney()">Send money</button>
+            <p>Money sent to <span id="who"></span></p>
+        </div>
+        <script>
+            window.who_to_send_money_to = "Ben Cart";
+            document.getElementById("who").textContent = window.who_to_send_money_to;
+            function sendmoney(){
+                document.getElementById("who").textContent = window.who_to_send_money_to
+            }
+        </script>
+    </body>
+</html>
