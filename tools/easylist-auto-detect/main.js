@@ -13,7 +13,12 @@ EasyList_Cookie: "https://ublockorigin.github.io/uAssets/thirdparties/easylist-c
 adblock_list_for_finland: "https://raw.githubusercontent.com/finnish-easylist-addition/finnish-easylist-addition/gh-pages/Finland_adb.txt",
 EasyList_Notifications: "https://ublockorigin.github.io/uAssets/thirdparties/easylist-notifications.txt",
 Brave_FirstParty_filters: "https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/brave-firstparty.txt",
-Dandelion_Sprout_s_Nordic_filters: "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianList.txt"
+Dandelion_Sprout_s_Nordic_filters: "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianList.txt",
+Brave_Unbreak: "https://raw.githubusercontent.com/brave/adblock-lists/master/brave-unbreak.txt",
+ABP_japanese: "https://raw.githubusercontent.com/k2jp/abp-japanese-filters/master/abpjf_element_hiding.txt",
+ABPVN: "https://raw.githubusercontent.com/abpvn/abpvn/master/filter/abpvn.txt",
+ABPindo: "https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt",
+Adblock_Iran_farrokhi: "https://raw.githubusercontent.com/farrokhi/adblock-iran/master/filter.txt"
 }
 const ELM_NAME_REGEX = /^##[a-zA-Z\-]*$/;
 
@@ -77,6 +82,7 @@ document.getElementById("run").addEventListener("click",async () => {
 				if(cline.startsWith("##") === false){
 					continue
 				}
+				cline = cline.replaceAll(":not(:root):not(body):not(input)", "").replaceAll(":not(:root):not(body)","").replaceAll(":not(:root)","").replaceAll(":not(body)", "")
 				if((cline.startsWith("###") || cline.startsWith("*###")) && cline.includes(">") === false && cline.includes("[") === false && cline.includes(".") === false){
 					var tmpid = cline.split("###")[1].replace(/:not\(.*\)/,"");
 					allids.push("#"+tmpid);
