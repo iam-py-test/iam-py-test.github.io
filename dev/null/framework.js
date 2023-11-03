@@ -130,16 +130,13 @@ return (array[pos]||array[0])
 "/hidden/flag":{
 "parent":"/hidden",
 "files":{
-"flag":"FLAG(notactf)",
-"ctfs_are_great":"CTFs are great!!!",
-"ctfs_are_bad":"CTFs are horrible",
-"you":"Which do you agree with???"
+"flag":"FLAG(notactf)"
 }
 }
   },
   alias:{},
   pid:Math.round(Math.random()*900000).toString().padStart(6,"0"),
-  uid: Math.round(Math.random()*1001),
+  uid: 0,
   user:"root",
   currentDir:"/",
   suppressCmdEcho:false,
@@ -256,6 +253,18 @@ return (array[pos]||array[0])
     catch(err){
     console.log(err)
     }
+
+    try{
+      if(program === "touch"){
+        var filename = args.join(" ");
+        var cDir = this.currentDir
+        if(this.fs[cDir]["files"] === undefined){
+          this.fs[cDir]["files"] = {}
+        }
+        this.fs[cDir]["files"][filename] = ""
+      }
+    }
+    catch(err){}
     
     
     try{
