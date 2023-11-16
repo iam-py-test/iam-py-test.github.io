@@ -8,23 +8,22 @@
     <!--prove I am the site owner-->
     <meta name="msvalidate.01" content="5B7C69DCC1D35C9B6AE23899C085674F" />
     <meta name="wot-verification" content="4a8b8d8aa61433e71afb"/>
+    <link rel="stylesheet" href="index.css">
+    <noscript>
+      <style>
+        #hide_warning {
+          display: none;
+        }
+      </style>
+    </noscript>
   </head>
   <body>
 <!-- defense against Instagram, see https://krausefx.com/blog/ios-privacy-instagram-and-facebook-can-track-anything-you-do-on-any-website-in-their-in-app-browser -->
     <span id="iab-pcm-sdk"></span>
 <span id="iab-autofill-sdk"></span>
-    <script>
-      // https://krausefx.com/blog/ios-privacy-instagram-and-facebook-can-track-anything-you-do-on-any-website-in-their-in-app-browser
-      const originalEventListener = document.addEventListener
-document.addEventListener = function(a, b) {
-    if (b.toString().indexOf("messageHandlers.fb_getSelection") > -1) {
-        return null;
-    }
-    return originalEventListener.apply(this, arguments);
-}
-
-    </script>
+    <script src="index.js"></script>
     
+
 Hi! This is my website<br>
 If you are looking for my filterlists, see <a href="https://github.com/iam-py-test/my_filters_001">here</a>. <a href="/about.html">Contact me!</a><br>
     I have made a small tool to generate <a href="https://github.com/gorhill/uBlock/wiki/Static-filter-syntax#removeparam"><code>$removeparam</code></a> filters from URLs. <a href="https://iam-py-test.github.io/tools/url_to_removeparam/tool.html">You can view it here.</a><br>
