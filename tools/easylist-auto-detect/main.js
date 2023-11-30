@@ -18,7 +18,11 @@ Brave_Unbreak: "https://raw.githubusercontent.com/brave/adblock-lists/master/bra
 ABP_japanese: "https://raw.githubusercontent.com/k2jp/abp-japanese-filters/master/abpjf_element_hiding.txt",
 ABPVN: "https://raw.githubusercontent.com/abpvn/abpvn/master/filter/abpvn.txt",
 ABPindo: "https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt",
-Adblock_Iran_farrokhi: "https://raw.githubusercontent.com/farrokhi/adblock-iran/master/filter.txt"
+Adblock_Iran_farrokhi: "https://raw.githubusercontent.com/farrokhi/adblock-iran/master/filter.txt",
+Eyeo_Antiadblock_arabic: "https://gitlab.com/eyeo/filterlists/antiadblockfilters/-/raw/master/antiadblockfilters/antiadblock_arabic.txt",
+Eyeo_Antiadblock_english: "https://gitlab.com/eyeo/filterlists/antiadblockfilters/-/raw/master/antiadblockfilters/antiadblock_english.txt",
+Eyeo_Antiadblock_french: "https://gitlab.com/eyeo/filterlists/antiadblockfilters/-/raw/master/antiadblockfilters/antiadblock_french.txt",
+Eyeo_Antiadblock_german: "https://gitlab.com/eyeo/filterlists/antiadblockfilters/-/raw/master/antiadblockfilters/antiadblock_german.txt"
 }
 const ELM_NAME_REGEX = /^##[a-zA-Z\-]*$/;
 
