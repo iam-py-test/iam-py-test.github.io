@@ -75,7 +75,7 @@ document.getElementById("run").addEventListener("click",async () => {
 			var dataset = await (await fetch(curl)).text();
 		}
 		catch(err){
-			resultelm.textContent = `Failed to load ${keys[i]} list: ${err}`
+			resultelm.innerText += `Failed to load ${keys[i]} list: ${err}\n`
 			return;
 		}
 		const datasetlines = dataset.replace("\r\n","\n").split("\n");
