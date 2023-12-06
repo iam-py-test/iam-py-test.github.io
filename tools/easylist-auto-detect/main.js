@@ -22,7 +22,8 @@ Adblock_Iran_farrokhi: "https://raw.githubusercontent.com/farrokhi/adblock-iran/
 Eyeo_Antiadblock_arabic: "https://gitlab.com/eyeo/filterlists/antiadblockfilters/-/raw/master/antiadblockfilters/antiadblock_arabic.txt",
 Eyeo_Antiadblock_english: "https://gitlab.com/eyeo/filterlists/antiadblockfilters/-/raw/master/antiadblockfilters/antiadblock_english.txt",
 Eyeo_Antiadblock_french: "https://gitlab.com/eyeo/filterlists/antiadblockfilters/-/raw/master/antiadblockfilters/antiadblock_french.txt",
-Eyeo_Antiadblock_german: "https://gitlab.com/eyeo/filterlists/antiadblockfilters/-/raw/master/antiadblockfilters/antiadblock_german.txt"
+Eyeo_Antiadblock_german: "https://gitlab.com/eyeo/filterlists/antiadblockfilters/-/raw/master/antiadblockfilters/antiadblock_german.txt",
+Easylist_Czech_and_Slovak_filter_list: "https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt"
 }
 const ELM_NAME_REGEX = /^##[a-zA-Z\-]*$/;
 
