@@ -31,7 +31,7 @@ for(let i = 0; i < FUNC_TO_TEST.length; i++){
     let funcelm = document.createElement("p");
     let funcstr = undefined;
     if(window[cfunc]){
-        funcstr = window[cfunc].toString().replaceAll(" ","").replaceAll("\n","").replaceAll("\t","");
+        funcstr = new String(window[cfunc]).replaceAll(" ","").replaceAll("\n","").replaceAll("\t","");
     }
     let should_funcstr = `function${cfunc}(){[nativecode]}`
     funcelm.textContent = `${cfunc}: ${(funcstr === should_funcstr) ? "OK" : "Altered"}`;
