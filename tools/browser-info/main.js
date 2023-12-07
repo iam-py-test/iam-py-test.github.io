@@ -12,6 +12,8 @@ const log = (...msg) => {
     console.log.call(console,`[${context || "main"}]`, ...msg);
 }
 
+const FUNC_TO_TEST = ["alert", "print", "open", "close", "atob"];
+
 var getElmById = document.getElementById.bind(document);
 var createElm = document.createElement.bind(document)
 var user_agent = getElmById("ua");
@@ -22,6 +24,16 @@ var toStringE = getElmById("tostring");
 
 user_agent.textContent = ua_nav;
 toStringE.textContent = (alert.toString().includes("\n")) ? "Firefox" : "Chromium"
+
+for(let i = 0; i < FUNC_TO_TEST.length; i++){
+    let cfunc = FUNC_TO_TEST[i];
+    let functestelm = document.getElementById("functostr");
+    let funcelm = document.createElement("p");
+    let funcstr = window[cfunc].toString().replaceAll(" ","").replaceAll("\n","").replaceAll("\t","");
+    let should_funcstr = `function${cfunc}(){[nativecode]}`
+    funcelm.textContent = `${cfunc}: ${(funcstr === should_funcstr) ? "OK" : "Altered"}`;
+    functestelm.appendChild(funcelm);
+}
 
 // get user agent from iframe
 var iframe = createElm("iframe");
