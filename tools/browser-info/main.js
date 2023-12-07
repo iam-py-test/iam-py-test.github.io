@@ -22,8 +22,12 @@ var user_agent_iframe = getElmById("ua_iframe");
 var ua_nav = navigator.userAgent;
 var toStringE = getElmById("tostring");
 
-user_agent.textContent = ua_nav;
-toStringE.textContent = (alert.toString().includes("\n")) ? "Firefox" : "Chromium"
+try{
+    user_agent.textContent = ua_nav;
+    toStringE.textContent = ((String.toString).toString().includes("\n")) ? "Firefox" : "Chromium"
+}
+catch(err){}
+
 
 for(let i = 0; i < FUNC_TO_TEST.length; i++){
     let cfunc = FUNC_TO_TEST[i];
