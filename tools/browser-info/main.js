@@ -29,12 +29,17 @@ for(let i = 0; i < FUNC_TO_TEST.length; i++){
     let cfunc = FUNC_TO_TEST[i];
     let functestelm = document.getElementById("functostr");
     let funcelm = document.createElement("p");
-    let funcstr = undefined;
-    if(window[cfunc]){
-        funcstr = new String(window[cfunc]).replaceAll(" ","").replaceAll("\n","").replaceAll("\t","");
+    try{
+        let funcstr = undefined;
+        if(window[cfunc]){
+            funcstr = new String(window[cfunc]).replaceAll(" ","").replaceAll("\n","").replaceAll("\t","");
+        }
+        let should_funcstr = `function${cfunc}(){[nativecode]}`
+        funcelm.textContent = `${cfunc}: ${(funcstr === should_funcstr) ? "OK" : "Altered"}`;
     }
-    let should_funcstr = `function${cfunc}(){[nativecode]}`
-    funcelm.textContent = `${cfunc}: ${(funcstr === should_funcstr) ? "OK" : "Altered"}`;
+    catch(err){
+        funcelm.textContent = `${cfunc}: Error accessing`
+    }
     functestelm.appendChild(funcelm);
 }
 
