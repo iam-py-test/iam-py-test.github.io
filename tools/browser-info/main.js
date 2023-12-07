@@ -29,7 +29,10 @@ for(let i = 0; i < FUNC_TO_TEST.length; i++){
     let cfunc = FUNC_TO_TEST[i];
     let functestelm = document.getElementById("functostr");
     let funcelm = document.createElement("p");
-    let funcstr = window[cfunc].toString().replaceAll(" ","").replaceAll("\n","").replaceAll("\t","");
+    let funcstr = undefined;
+    if(window[cfunc]){
+        funcstr = window[cfunc].toString().replaceAll(" ","").replaceAll("\n","").replaceAll("\t","");
+    }
     let should_funcstr = `function${cfunc}(){[nativecode]}`
     funcelm.textContent = `${cfunc}: ${(funcstr === should_funcstr) ? "OK" : "Altered"}`;
     functestelm.appendChild(funcelm);
