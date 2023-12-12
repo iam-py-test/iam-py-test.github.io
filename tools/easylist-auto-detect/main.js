@@ -23,7 +23,11 @@ Eyeo_Antiadblock_arabic: "https://gitlab.com/eyeo/filterlists/antiadblockfilters
 Eyeo_Antiadblock_english: "https://gitlab.com/eyeo/filterlists/antiadblockfilters/-/raw/master/antiadblockfilters/antiadblock_english.txt",
 Eyeo_Antiadblock_french: "https://gitlab.com/eyeo/filterlists/antiadblockfilters/-/raw/master/antiadblockfilters/antiadblock_french.txt",
 Eyeo_Antiadblock_german: "https://gitlab.com/eyeo/filterlists/antiadblockfilters/-/raw/master/antiadblockfilters/antiadblock_german.txt",
-Easylist_Czech_and_Slovak_filter_list: "https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt"
+Easylist_Czech_and_Slovak_filter_list: "https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt",
+albanian_easylist_addition: "https://raw.githubusercontent.com/AnXh3L0/blocklist/master/albanian-easylist-addition/Albania.txt",
+easylistspanish: "https://easylist-downloads.adblockplus.org/easylistspanish.txt",
+Ad_Removal_List_for_Unusual_Ads: "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/AdRemovalListForUnusualAds.txt",
+Dandelion_Sprouts_African_Languages_List: "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/AfricanLanguagesList.txt"
 }
 const ELM_NAME_REGEX = /^##[a-zA-Z\-]*$/;
 
@@ -76,7 +80,7 @@ document.getElementById("run").addEventListener("click",async () => {
 		}
 		catch(err){
 			resultelm.innerText += `Failed to load ${keys[i]} list: ${err}\n`
-			return;
+			continue;
 		}
 		const datasetlines = dataset.replace("\r\n","\n").split("\n");
 		window.allids = [];

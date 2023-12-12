@@ -12,7 +12,7 @@ const log = (...msg) => {
     console.log.call(console,`[${context || "main"}]`, ...msg);
 }
 
-const FUNC_TO_TEST = ["alert", "print", "open", "close", "atob"];
+const FUNC_TO_TEST = ["alert", "print", "open", "close", "atob", "btoa", "prompt"];
 
 var getElmById = document.getElementById.bind(document);
 var createElm = document.createElement.bind(document)
