@@ -25,7 +25,7 @@ var main = async function(){
       document.getElementById("last_check").textContent = (text[domain]["last_checked"] || "Unknown");
       document.getElementById("check_status").textContent = (text[domain]["check_status"] === true) ? "Alive" : (text[domain]["check_status"] === false) ? "Dead" : "Not checked";
       document.getElementById("counter").textContent = text[domain]["check_counter"];
-      document.getElementById("ips").textContent = (text[domain]["ips"] || []).join(",")
+      document.getElementById("ips").textContent = (text[domain]["ips"] || []).join(", ")
     }
     else{
       document.getElementById('my-am').textContent = "Not listed";
