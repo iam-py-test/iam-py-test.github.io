@@ -12,6 +12,25 @@ const log = (...msg) => {
     console.log.call(console,`[${context || "main"}]`, ...msg);
 }
 
+function get_canvas(){
+    try{
+        let canvas = document.createElement("canvas");
+        if(!canvas.getContext){
+            return "nogetContext";
+        }
+        let context = canvas.getContext("2d");
+        context.fillText(0,0,"Test");
+        context.fill()
+        if(!canvas.toDataURL){
+            return "notoDataURL";
+        }
+        return canvas.toDataURL()
+    }
+    catch(err){
+        return new String(err)
+    }
+}
+
 const FUNC_TO_TEST = ["alert", "print", "open", "close", "atob", "btoa", "prompt"];
 
 var getElmById = document.getElementById.bind(document);
@@ -53,11 +72,26 @@ iframe.src = "iframe.html";
 iframe.hidden = true;
 window.onmessage = function(event){
     log(event);
-    user_agent_iframe.textContent = event.data.res
+    if(event.data.cmd == "get_ua"){
+        user_agent_iframe.textContent = event.data.res
+    }
+    if(event.data.cmd == "get_canvas"){
+        window.iframe_canvas = event.data.res;
+        document.getElementById("iframe_canvas_img").src = window.iframe_canvas;
+        window.main_canvas = get_canvas();
+        document.getElementById("main_canvas_img").src = window.main_canvas;
+        if(window.main_canvas === window.iframe_canvas){
+            document.getElementById("diff_canvas").textContent = "Identical"
+        }
+        else{
+            document.getElementById("diff_canvas").textContent = "No match"
+        }
+    }
 }
 document.body.appendChild(iframe);
 iframe.contentWindow.addEventListener("load", () => {
-    iframe.contentWindow.postMessage({"cmd": "get_ua"})
+    iframe.contentWindow.postMessage({"cmd": "get_ua"});
+    iframe.contentWindow.postMessage({"cmd": "get_canvas"})
 })
 
 // get user agent from worker
@@ -82,3 +116,6 @@ catch(err){
     user_agent_worker.textContent = "Could not load worker!"
     user_agent_worker.style.color = "red";
 }
+
+
+
