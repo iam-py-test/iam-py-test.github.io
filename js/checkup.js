@@ -14,10 +14,10 @@ var main = async function(){
     document.getElementById('my-am').textContent = (currently_listed.includes(domain)) ? "Listed" : "Not listed"
     if(typeof text[domain] === "object"){
       let first_date = new Date(text[domain]["first_seen"]).toString();
-      document.getElementById("added").textContent = `Added ${first_date}`
+      document.getElementById("added").textContent = `${first_date}`
       if(text[domain]["removed"]){
         console.log(text[domain], text["last_updated"])
-         document.getElementById("removed").textContent = `Removed ${new Date(text[domain]["removed_date"])}`
+         document.getElementById("removed").textContent = `${new Date(text[domain]["removed_date"])}`
       }
       else{
         document.getElementById("removed").textContent = "Not removed"
@@ -25,7 +25,13 @@ var main = async function(){
       document.getElementById("last_check").textContent = (text[domain]["last_checked"] || "Unknown");
       document.getElementById("check_status").textContent = (text[domain]["check_status"] === true) ? "Alive" : (text[domain]["check_status"] === false) ? "Dead" : "Not checked";
       document.getElementById("counter").textContent = text[domain]["check_counter"];
-      document.getElementById("ips").textContent = (text[domain]["ips"] || []).join(", ")
+      document.getElementById("ips").textContent = (text[domain]["ips"] || []).join(", ");
+      if(text[domain]["dead_since"]){
+        document.getElementById("dead_since").textContent = new Date(text[domain]["dead_since"])
+      }
+      if(text[domain]["alive_on_creation"]){
+        document.getElementById("alive_on_creation").textContent = text[domain]['alive_on_creation']
+      }
     }
     else{
       document.getElementById('my-am').textContent = "Not listed";
