@@ -29,7 +29,7 @@ var main = async function(){
       if(text[domain]["dead_since"]){
         document.getElementById("dead_since").textContent = new Date(text[domain]["dead_since"])
       }
-      if(text[domain]["alive_on_creation"]){
+      if(text[domain]["alive_on_creation"] != undefined){
         document.getElementById("alive_on_creation").textContent = text[domain]['alive_on_creation']
       }
     }
