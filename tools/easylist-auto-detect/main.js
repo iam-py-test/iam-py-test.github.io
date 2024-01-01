@@ -4,16 +4,16 @@ const FILTERLIST_URLS = {
 EasyList: "https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_general_hide.txt",
 EasyPrivacy: "https://ublockorigin.github.io/uAssets/thirdparties/easyprivacy.txt",
 uBo: "https://ublockorigin.github.io/uAssets/filters/filters.txt",
-EasyList_chat: "https://ublockorigin.github.io/uAssets/thirdparties/easylist-chat.txt",
-AdGuard_Mobile: "https://filters.adtidy.org/extension/ublock/filters/11.txt",
-AdGuard_Base: "https://filters.adtidy.org/extension/ublock/filters/2_without_easylist.txt",
-AdGuard_Cyrillic: "https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/CyrillicFilters/common-sections/general_elemhide.txt",
-AdGuard_Chinese: "https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/ChineseFilter/sections/general_elemhide.txt",
-EasyList_Cookie: "https://ublockorigin.github.io/uAssets/thirdparties/easylist-cookies.txt",
-adblock_list_for_finland: "https://raw.githubusercontent.com/finnish-easylist-addition/finnish-easylist-addition/gh-pages/Finland_adb.txt",
-EasyList_Notifications: "https://ublockorigin.github.io/uAssets/thirdparties/easylist-notifications.txt",
-Brave_FirstParty_filters: "https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/brave-firstparty.txt",
-Dandelion_Sprout_s_Nordic_filters: "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianList.txt",
+"EasyList chat": "https://ublockorigin.github.io/uAssets/thirdparties/easylist-chat.txt",
+"AdGuard Mobile": "https://filters.adtidy.org/extension/ublock/filters/11.txt",
+"AdGuard Base": "https://filters.adtidy.org/extension/ublock/filters/2_without_easylist.txt",
+"AdGuard Cyrillic": "https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/CyrillicFilters/common-sections/general_elemhide.txt",
+"AdGuard Chinese": "https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/ChineseFilter/sections/general_elemhide.txt",
+"EasyList Cookie": "https://ublockorigin.github.io/uAssets/thirdparties/easylist-cookies.txt",
+"Adblock List for Finland": "https://raw.githubusercontent.com/finnish-easylist-addition/finnish-easylist-addition/gh-pages/Finland_adb.txt",
+"EasyList Notifications": "https://ublockorigin.github.io/uAssets/thirdparties/easylist-notifications.txt",
+"Brave FirstParty filters": "https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/brave-firstparty.txt",
+"Dandelion Sprout's Nordic filters for tidier websites": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianList.txt",
 Brave_Unbreak: "https://raw.githubusercontent.com/brave/adblock-lists/master/brave-unbreak.txt",
 ABP_japanese: "https://raw.githubusercontent.com/k2jp/abp-japanese-filters/master/abpjf_element_hiding.txt",
 ABPVN: "https://raw.githubusercontent.com/abpvn/abpvn/master/filter/abpvn.txt",
@@ -27,7 +27,8 @@ Easylist_Czech_and_Slovak_filter_list: "https://raw.githubusercontent.com/tomask
 albanian_easylist_addition: "https://raw.githubusercontent.com/AnXh3L0/blocklist/master/albanian-easylist-addition/Albania.txt",
 easylistspanish: "https://easylist-downloads.adblockplus.org/easylistspanish.txt",
 Ad_Removal_List_for_Unusual_Ads: "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/AdRemovalListForUnusualAds.txt",
-Dandelion_Sprouts_African_Languages_List: "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/AfricanLanguagesList.txt"
+Dandelion_Sprouts_African_Languages_List: "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/AfricanLanguagesList.txt",
+"Fanboy agegate": "https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_agegate_general_hide.txt"
 }
 const ELM_NAME_REGEX = /^##[a-zA-Z\-]*$/;
 
