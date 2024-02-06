@@ -1,0 +1,15 @@
+<p id="max_size"></p>
+<script>
+    const max_size = document.getElementById("max_size");
+    window.arr = [0];
+    window.max_id = window.setInterval(() => {
+        try{
+            window.arr = window.arr.concat(window.arr);
+            max_size.textContent = window.arr.length + " (running)";
+        }
+        catch(err){
+            window.clearInterval(window.max_id);
+            max_size.textContent = window.arr.length;
+        }
+    }, 10);
+</script>

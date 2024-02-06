@@ -1,0 +1,15 @@
+<p id="max_len"></p>
+<script>
+    const max_len = document.getElementById("max_len");
+    window.string = "";
+    window.max_id = window.setInterval(() => {
+        try{
+            window.string += "a";
+            max_len.textContent = window.string.length + " (running)";
+        }
+        catch(err){
+            window.clearInterval(window.max_id);
+            max_len.textContent = window.string.length;
+        }
+    }, 10);
+</script>
