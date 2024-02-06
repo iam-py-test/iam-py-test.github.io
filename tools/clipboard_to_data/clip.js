@@ -3,7 +3,7 @@ window.onpaste = (e) => {
     if(!file){return};
     const reader = new FileReader();
     reader.addEventListener("load", function(){
-        document.getElementById("out").textContent = reader.re
+        document.getElementById("out").textContent = reader.result
     })
     reader.readAsDataURL(file);
 }
