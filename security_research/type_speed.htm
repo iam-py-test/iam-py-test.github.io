@@ -1,0 +1,15 @@
+<p id="avg_speed"></p>
+<script>
+    const avg_speed = document.getElementById("avg_speed");
+    window.speeds = []
+    window.down = 0
+    window.onkeydown = () => window.down = performance.now();
+    window.onkeyup = () => {
+        let uptime = performance.now();
+        if(window.down === 0){return};
+        window.speeds.push(uptime - window.down);
+        window.down = 0;
+        let total = window.speeds.reduce((tot, current) => tot + current)
+        avg_speed.textContent = total/window.speeds.length;
+    }
+</script>
