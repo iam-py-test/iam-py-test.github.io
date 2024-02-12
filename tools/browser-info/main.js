@@ -44,6 +44,16 @@ async function getHash(str, algo){
     return hash_hex;
 }
 
+/* used in real anti-blocker */
+function isProxy(item){
+    try{
+        return item.caller || true
+    }
+    catch(err){
+        return err.toString().includes("get caller method called on incompatible Proxy")
+    }
+}
+
 const FUNC_TO_TEST = ["alert", "print", "open", "close", "atob", "btoa", "prompt"];
 const ERROR_TO_TEST = ["InternalError", "SyntaxError", "RangeError", "ReferenceError", "TypeError", "URIError", "Error", "DOMException", "EvalError", "AggregateError"];
 
@@ -99,7 +109,8 @@ for(let i = 0; i < FUNC_TO_TEST.length; i++){
             funcstr = new String(window[cfunc]).replaceAll(" ","").replaceAll("\n","").replaceAll("\t","");
         }
         let should_funcstr = `function${cfunc}(){[nativecode]}`
-        funcelm.textContent = `${cfunc}: ${(funcstr === should_funcstr) ? "OK" : "Altered"}`;
+        let is_proxy = isProxy[window[cfunc]]
+        funcelm.textContent = `${cfunc}: ${(funcstr === should_funcstr) ? "OK" : "Altered"}` + (is_proxy) ? " (proxied)" : "";
     }
     catch(err){
         funcelm.textContent = `${cfunc}: Error accessing`
