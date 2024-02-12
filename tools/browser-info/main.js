@@ -47,7 +47,7 @@ async function getHash(str, algo){
 /* used in real anti-blocker */
 function isProxy(item){
     try{
-        return item.caller || true
+        return item.caller
     }
     catch(err){
         return err.toString().includes("get caller method called on incompatible Proxy")
@@ -110,7 +110,10 @@ for(let i = 0; i < FUNC_TO_TEST.length; i++){
         }
         let should_funcstr = `function${cfunc}(){[nativecode]}`
         let is_proxy = isProxy[window[cfunc]]
-        funcelm.textContent = `${cfunc}: ${(funcstr === should_funcstr) ? "OK" : "Altered"}` + (is_proxy) ? " (proxied)" : "";
+        funcelm.textContent = `${cfunc}: ${(funcstr === should_funcstr) ? "OK" : "Altered"}`;
+        if(is_proxy === true){
+            funcelm.textContent += " (proxied)"
+        }
     }
     catch(err){
         funcelm.textContent = `${cfunc}: Error accessing`
