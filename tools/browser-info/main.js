@@ -109,6 +109,7 @@ for(let i = 0; i < FUNC_TO_TEST.length; i++){
             funcstr = new String(window[cfunc]).replaceAll(" ","").replaceAll("\n","").replaceAll("\t","");
         }
         let should_funcstr = `function${cfunc}(){[nativecode]}`
+        console.log(should_funcstr, funcstr)
         let is_proxy = isProxy[window[cfunc]]
         funcelm.textContent = `${cfunc}: ${(funcstr === should_funcstr) ? "OK" : "Altered"}`;
         if(is_proxy === true){
