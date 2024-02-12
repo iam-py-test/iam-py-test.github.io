@@ -1,0 +1,18 @@
+function() {
+    if (detected && !excluded && isBrowserlocker) {
+        // Forces a failure of the original Function
+        throw new Error('Breaking Browser Locker Behavior detected');
+    }
+    let parameters = [].slice.call(arguments);
+    if (!excluded && detectFunc(parameters)) {
+        detected = true;
+    }
+    if (detected && !excluded) {
+        notify(subtype, parameters);
+    }
+    if (detected && !excluded && isBrowserlocker) {
+        // Forces a failure of the original Function
+        throw new Error('Breaking Browser Locker Behavior detected');
+    }
+    return proxy(originalFunc, this, parameters);
+}
