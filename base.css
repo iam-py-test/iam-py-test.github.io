@@ -1,5 +1,7 @@
-a, div, code, span {
-    color: #000000;
-    background-color: #FFFFFF;
-
+/*
+:visited was a horrible idea
+so I will force that opinion on everyone
+*/
+a {
+    color: blue;
 }
