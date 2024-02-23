@@ -1,3 +1,4 @@
+"use strict";
 var main = async function(){
   var domain = new URL(location).searchParams.get("q");
 
@@ -31,6 +32,11 @@ var main = async function(){
       }
       if(text[domain]["alive_on_creation"] != undefined){
         document.getElementById("alive_on_creation").textContent = text[domain]['alive_on_creation']
+      }
+      if(text[domain]['whois'] != undefined){
+        let whois_elm = document.getElementById("whois");
+        whois_elm.innerText = text[domain]['whois'];
+        document.getElementById("whois_present").textContent = "View WHOIS record"
       }
     }
     else{

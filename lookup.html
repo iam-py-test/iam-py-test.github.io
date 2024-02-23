@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
+    <meta charset="UTF-8">
     <title>Lookup results for domain</title>
     <style>
       a {
@@ -27,6 +28,12 @@
       <p>Dead since: <span id="dead_since">Unknown</span></p>
       <p>Alive when added: <span id="alive_on_creation">Unknown</span></p>
       <p>IP Addresses: <span id="ips"></span></p>
+      <div id="whois_container">
+        <details id="whois_details">
+          <summary id="whois_present">No WHOIS data</summary>
+          <div id="whois"></div>
+        </details>
+      </div>
       <p>Domain owner: <span id="known"></span></p>
       <p>Allowlisted: <span id="allowlist"></span></p>
       <p><a href="https://github.com/hagezi/dns-blocklists#tif">HaGeZi's Threat Intelligence Feeds DNS Blocklist</a> (includes the MWB): <span id="tif"></span></p>
