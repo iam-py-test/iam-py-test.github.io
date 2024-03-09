@@ -33,6 +33,20 @@ var main = async function(){
       if(text[domain]["alive_on_creation"] != undefined){
         document.getElementById("alive_on_creation").textContent = text[domain]['alive_on_creation']
       }
+      if(text[domain]["alive_on_removal"] != undefined){
+        document.getElementById("alive_on_removal").textContent = text[domain]['alive_on_removal']
+      }
+      if(text[domain]["ports_open"] != undefined){
+        let ports_elm = document.getElementById("ports");
+        let ports_list = document.createElement("ul");
+        let ports = Object.keys(text[domain]["ports_open"]);
+        for(let i = 0; i < ports.length; i++){
+          let port = document.createElement('li');
+          port.textContent = `${ports[i]}: ${text[domain]["ports_open"][ports[i]]}`
+          ports_list.appendChild(port);
+        }
+        ports_elm.appendChild(ports_list)
+      }
       if(text[domain]['whois'] != undefined){
         let whois_elm = document.getElementById("whois");
         whois_elm.innerText = text[domain]['whois'];
