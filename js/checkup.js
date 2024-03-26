@@ -36,6 +36,12 @@ var main = async function(){
       if(text[domain]["alive_on_removal"] != undefined){
         document.getElementById("alive_on_removal").textContent = text[domain]['alive_on_removal']
       }
+      if(text[domain]["had_www_on_creation"] != undefined){
+        document.getElementById("had_www_on_creation").textContent = text[domain]['had_www_on_creation']
+      }
+      if(text[domain]["had_www_on_check"] != undefined){
+        document.getElementById("had_www_on_check").textContent = text[domain]['had_www_on_check']
+      }
       if(text[domain]["ports_open"] != undefined){
         let ports_elm = document.getElementById("ports");
         let ports_list = document.createElement("ul");
