@@ -6,7 +6,7 @@
     <body>
         <button id="lock" onclick="document.body.requestFullscreen()">Lock me</button>
         <button id="lock_p" onclick="document.body.requestPointerLock()">Lock pointer</button>
-        <div id="stuff">Stuff<br></div>
+        <div id="stuff" style="background: white;">Stuff<br></div>
         <script>
             window.rtimes = 1
             window.onload = () => document.getElementById("stuff").innerText += "Stuff\n"
