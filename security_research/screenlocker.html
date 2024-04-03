@@ -6,5 +6,14 @@
     <body>
         <button id="lock" onclick="document.body.requestFullscreen()">Lock me</button>
         <button id="lock_p" onclick="document.body.requestPointerLock()">Lock pointer</button>
+        <div id="stuff">Stuff<br></div>
+        <script>
+            window.rtimes = 1
+            window.onload = () => document.getElementById("stuff").innerText += "Stuff\n"
+            window.onscroll = () => {
+                document.getElementById("stuff").innerText += "Stuff\n".repeat(window.rtimes)
+                window.rtimes += 1
+            }
+        </script>
     </body>
 </html>
