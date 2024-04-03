@@ -5,13 +5,17 @@
     </head>
     <body>
         <p style="position: sticky; top: 0;">For testing purposes</p>
+        <p id="scrollnum" style="position: sticky; top: 0;"></p>
         <button id="lock" onclick="document.body.requestFullscreen()" style="position: sticky; top: 0;">Lock me</button>
         <button id="lock_p" onclick="document.body.requestPointerLock()">Lock pointer</button>
         <div id="stuff" style="background: white;">Stuff<br></div>
         <script>
+            window.scrollnum = 0
             window.onload = () => document.getElementById("stuff").innerText += "Stuff\n".repeat(100)
             window.onscroll = () => {
                 document.getElementById("stuff").innerText += "Stuff\n"
+                window.scrollnum += 1
+                document.getElementById("scrollnum").textContent = window.scrollnum
             }
         </script>
     </body>
