@@ -14,6 +14,7 @@ var main = async function(){
     var text = await req.json()
     document.getElementById('my-am').textContent = (currently_listed.includes(domain)) ? "Listed" : "Not listed"
     if(typeof text[domain] === "object"){
+      console.log(text[domain])
       let first_date = new Date(text[domain]["first_seen"]).toString();
       document.getElementById("added").textContent = `${first_date}`
       if(text[domain]["removed"]){
