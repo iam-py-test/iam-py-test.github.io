@@ -1,0 +1,3 @@
+# random test pages
+User-agent: *
+Disallow: /security_research

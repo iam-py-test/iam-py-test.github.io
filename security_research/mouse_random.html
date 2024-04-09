@@ -1,0 +1,26 @@
+<p id="result"></p>
+<input type="range" id="level">
+<button id="get">Get number</button>
+<script>
+    window.listen = async (level) => {
+        return new Promise(function(res, rej){
+            let captured_moves = [];
+            function mouseMove(event){
+                if(captured_moves.length > level){
+                    window.removeEventListener('mousemove', mouseMove);
+                    let total = 0;
+                    captured_moves.forEach((move) => total += move);
+                    res(total / captured_moves.length);
+                    return;
+                }
+                captured_moves.push(event.clientX % event.clientY);
+            }
+            window.addEventListener("mousemove", mouseMove)
+        })
+
+    }
+    document.getElementById('get').onclick = async () => {
+        let number = await listen(document.getElementById('level').value);
+        document.getElementById('result').textContent = number;
+    }
+</script>
