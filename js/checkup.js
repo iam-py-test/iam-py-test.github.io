@@ -59,6 +59,26 @@ var main = async function(){
         whois_elm.innerText = text[domain]['whois'];
         document.getElementById("whois_present").textContent = "View WHOIS record"
       }
+      if(text[domain]['last_commit']){
+        document.getElementById("commit").href = text[domain]['last_commit'];
+        document.getElementById("commit").textContent = text[domain]['last_commit'];
+      }
+      if(text[domain]["ip_whois"]){
+        let ip_whois = document.getElementById("ipwhois");
+        let ips = Object.keys(text[domain['ip_whois']]);
+        ips.forEach((ip) => {
+          let ip_whois_info_li = document.createElement('li');
+          let ip_whois_details = document.getElementById('details');
+          ip_whois_info_li.appendChild(ip_whois_details);
+          let ip_whois_summary = document.createElement("summary");
+          ip_whois_summary.textContent = ip;
+          ip_whois_details.appendChild(ip_whois_summary);
+          let ip_whois_div = document.createElement("div");
+          ip_whois_div.innerText = text[domain]['ip_whois'][ip];
+          ip_whois_details.append(ip_whois_div);
+          ip_whois.appendChild(ip_whois_info_li);
+        })
+      }
     }
     else{
       document.getElementById('my-am').textContent = "Not listed";
