@@ -65,7 +65,7 @@ var main = async function(){
       }
       if(text[domain]["ip_whois"]){
         let ip_whois = document.getElementById("ipwhois");
-        let ips = Object.keys(text[domain['ip_whois']]);
+        let ips = Object.keys(text[domain]['ip_whois']);
         ips.forEach((ip) => {
           let ip_whois_info_li = document.createElement('li');
           let ip_whois_details = document.getElementById('details');
