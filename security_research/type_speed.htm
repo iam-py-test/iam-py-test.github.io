@@ -1,13 +1,26 @@
 <p id="avg_speed"></p>
+<div id="key_speeds"></div>
 <script>
     const avg_speed = document.getElementById("avg_speed");
     window.speeds = []
+    window.key_speeds = {}
     window.down = 0
-    window.onkeydown = () => window.down = performance.now();
-    window.onkeyup = () => {
+    window.onkeydown = (event) => window.down = performance.now();
+    window.onkeyup = (event) => {
         let uptime = performance.now();
         if(window.down === 0){return};
         window.speeds.push(uptime - window.down);
+        if(!window.key_speeds[event.key]){
+            window.key_speeds[event.key] = [];
+            let ks = document.createElement('p');
+            ks.id = 'ks_' + event.key;
+            document.getElementById("key_speeds").appendChild(ks);
+        }
+        window.key_speeds[event.key].push(uptime);
+        ks_elm = document.getElementById("ks_" + event.key)
+        if(ks_elm && window.key_speeds[event.key]){
+            ks_elm.textContent = window.key_speeds[event.key].reduce((tot, current) => tot + current) / window.key_speeds[event.key].length;
+        }
         window.down = 0;
         let total = window.speeds.reduce((tot, current) => tot + current)
         avg_speed.textContent = total/window.speeds.length;
