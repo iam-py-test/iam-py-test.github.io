@@ -16,10 +16,10 @@
             ks.id = 'ks_' + event.key;
             document.getElementById("key_speeds").appendChild(ks);
         }
-        window.key_speeds[event.key].push(uptime);
+        window.key_speeds[event.key].push(uptime - window.down);
         ks_elm = document.getElementById("ks_" + event.key)
         if(ks_elm && window.key_speeds[event.key]){
-            ks_elm.textContent = window.key_speeds[event.key].reduce((tot, current) => tot + current) / window.key_speeds[event.key].length;
+            ks_elm.textContent = event.key + ": " + window.key_speeds[event.key].reduce((tot, current) => tot + current) / window.key_speeds[event.key].length;
         }
         window.down = 0;
         let total = window.speeds.reduce((tot, current) => tot + current)
