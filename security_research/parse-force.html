@@ -1,0 +1,21 @@
+<button onclick="window.clearInterval(window.runner)">STOP</button>
+<div id="log"></div>
+<script>
+    const KNOWN_CHRS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~", " "]; // from python string.printable
+    function random_text(length){
+        let endstr = "";
+        for(let i = 0; i < length; i++){
+            endstr += KNOWN_CHRS[Math.round(Math.random()*KNOWN_CHRS.length)];
+        }
+        return endstr;
+    }
+    window.runner = window.setInterval(() => {
+        let test_str = random_text(Math.round(Math.random()*10));
+        let test_elm = document.createElement("div");
+        test_elm.innerHTML = test_str;
+        console.log(test_elm.innerHTML, test_str)
+        if(test_elm.innerHTML.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&amp;", "&") != test_str){
+            document.getElementById('log').innerText += `${test_str} -> ${test_elm.innerHTML}\n`
+        }
+    }, 60)
+</script>
