@@ -79,6 +79,10 @@ var main = async function(){
           ip_whois.appendChild(ip_whois_info_li);
         })
       }
+      if(text[domain]['has_http_80']){
+        let has_http_80_elm = document.getElementById("has_http_80");
+        has_http_80_elm.textContent = text[domain]['has_http_80']
+      }
     }
     else{
       document.getElementById('my-am').textContent = "Not listed";
