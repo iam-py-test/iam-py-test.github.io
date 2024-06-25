@@ -109,5 +109,15 @@ fetch("https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/tif.
   document.getElementById('tif').textContent = (domains.includes(domain)) ? "Listed" : "Not listed"
 })
 
+fetch("https://raw.githubusercontent.com/iam-py-test/my_filters_001/main/Alternative%20list%20formats/antipup_domains.txt").then(async function(r){
+  let domains = (await r.text()).split("\n");
+  document.getElementById('pup').textContent = (domains.includes(domain)) ? "Listed" : "Not listed"
+})
+
+fetch("https://raw.githubusercontent.com/iam-py-test/uBlock-combo/main/domains_subdomains.txt").then(async function(r){
+  let domains = (await r.text()).split("\n");
+  document.getElementById('combo').textContent = (domains.includes(domain)) ? "Listed" : "Not listed"
+})
+
 }
 main().catch(console.error)
