@@ -14,7 +14,7 @@ const log = (...msg) => {
 
 addEventListener("message", (event) => {
     //log(event);
-    if(event.origin != window.origin){
+    if(event.origin != origin){
         console.warn(`Possible spoofed message from ${event.origin}`);
         return;
     }
