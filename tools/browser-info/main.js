@@ -126,8 +126,12 @@ for(let i = 0; i < FUNC_TO_TEST.length; i++){
 var iframe = createElm("iframe");
 iframe.src = "iframe.html";
 iframe.hidden = true;
-window.onmessage = function(event){
+window.addEventListener('message', function(event){
     log(event);
+    if(event.origin != window.origin){
+        console.warn(`Possible spoofed message from ${event.origin}`);
+        return;
+    }
     if(event.data.cmd == "get_ua"){
         user_agent_iframe.textContent = event.data.res
     }
@@ -143,7 +147,7 @@ window.onmessage = function(event){
             document.getElementById("diff_canvas").textContent = "No match"
         }
     }
-}
+});
 document.body.appendChild(iframe);
 iframe.contentWindow.addEventListener("load", () => {
     iframe.contentWindow.postMessage({"cmd": "get_ua"});
@@ -154,7 +158,10 @@ iframe.contentWindow.addEventListener("load", () => {
 try{
     var worker = new Worker("worker.js");
         worker.onmessage = (msg) => {
-        //log(msg);
+        if(msg.origin != window.origin){
+            console.warn(`Possible spoofed message from ${msg.origin}`);
+            return;
+        }
         var cmd = msg.data.cmd;
         var res = msg.data.res;
         console.log(cmd, res)

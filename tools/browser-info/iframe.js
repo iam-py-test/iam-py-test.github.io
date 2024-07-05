@@ -33,6 +33,10 @@ function get_canvas(){
 
 window.onmessage = function(event){
     log(event)
+    if(event.origin != window.origin){
+        console.warn(`Possible spoofed message from ${event.origin}`);
+        return;
+    }
     if(typeof event.data !== "object"){
         return
     };
