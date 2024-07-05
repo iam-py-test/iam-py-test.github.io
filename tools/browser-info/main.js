@@ -158,10 +158,6 @@ iframe.contentWindow.addEventListener("load", () => {
 try{
     var worker = new Worker("worker.js");
         worker.onmessage = (msg) => {
-        if(msg.origin != window.origin){
-            console.warn(`Possible spoofed message from ${msg.origin}`);
-            return;
-        }
         var cmd = msg.data.cmd;
         var res = msg.data.res;
         console.log(cmd, res)
