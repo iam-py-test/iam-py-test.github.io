@@ -6,18 +6,19 @@
 		<meta name="referrer" content="no-referrer">
 	</head>
 	<body>
-<h2>Port scanning test</h2>
+<h1>Port scanning test</h1>
 		<div>
 			A simple browser-based port scan of your local computer to see what ports are exposed to websites. This <b>can not</b> tell what is on those ports or if it can be exploited. Be aware that scanning a large number of ports will take time and may slow down your device.
 </div>
 <button id="start">Start test</button><br>
-<p><label>Enter the highest port to scan (i.e. 8080): <input type="number" id="max" placeholder="The highest port to scan..." value="200"></label><br>
+<p><label>Enter the highest port to scan (i.e. 8080): <input type="number" id="max" placeholder="The highest port to scan..." value="200"></label></p>
+<p><label>Enter the IP address or domain to scan (default is 127.0.0.1): <input id="ip" value="127.0.0.1"></label></p>
 <p><span id="portsdetected">0</span> ports could be connected to by this scanner. <span id="numports">0</span> ports scanned</p>
 <h2>Ports found:</h2>
 <div id="found">
 
 </div>
-<h2>Log</h1>
+<h2>Log</h2>
 <div id="log">
 </div>
 <script src="./scan.js"></script>

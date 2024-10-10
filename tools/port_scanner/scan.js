@@ -23,7 +23,7 @@ var log = function(m,ok){
 var test = async function(port){
     var det = false
     try{
-        await fetch("http://127.0.0.1:" + port,{mode:"no-cors"});
+        await fetch(`http://${document.getElementById("ip")}:${port}`,{mode:"no-cors"});
         window.detectedon.push(port);
         console.log("Detected on port " + port, false);
         log(`Detected on ${port}`,false);
