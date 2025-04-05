@@ -9,7 +9,8 @@
         <h1>Generic cosmedic filter detection POC</h1>
         <div>
             Many filterlists (such as EasyList) use "cosmedic filters" which hide parts of websites. Many of these filters are applied to all websites. This Proof of Concept downloads the list of those filters, creates elements which will be hidden by them, and then sees if those elements were hidden.<br>
-            This is <i>not</i> an "exploit" or an original idea, it is just a more automated type of what many real websites already do. This is also **not** a test to see if your content blocker works!
+            This is <i>not</i> an "exploit" or an original idea, it is just a more automated type of what many real websites already do. This is also **not** a test to see if your content blocker works!<br>
+            Note: <a href="https://github.com/easylist/easylist/commit/f70273c308bd17c15fae3460ea722c155da12ea1#diff-b76c678e19d60482190cdf6ec0e8b6a5eae3662755f6576e336f6b46a86742daR305">as of January 2024</a>, EasyList disables generic cosmetic filters on github.io domains (including this one). This is a good thing, but does break this test. For the purpose of running this test, temporarily add <code>@@||github.io^$generichide,badfilter</code>.
         </div>
         <div>
             <h2>Filterlists to test for:</h2>
