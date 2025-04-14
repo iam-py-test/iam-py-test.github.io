@@ -26,6 +26,7 @@ var main = async function(){
       }
       document.getElementById("last_check").textContent = (text[domain]["last_checked"] || "Unknown");
       document.getElementById("check_status").textContent = (text[domain]["check_status"] === true) ? "Alive" : (text[domain]["check_status"] === false) ? "Dead" : "Not checked";
+      document.getElementById("parking_status").textContent = (text[domain]["parked"] === true) ? "Parked" : (text[domain]["check_status"] === false) ? "Not parked" : "Not checked";
       document.getElementById("counter").textContent = text[domain]["check_counter"];
       document.getElementById("ips").textContent = (text[domain]["ips"] || []).join(", ");
       if(text[domain]["dead_since"]){
