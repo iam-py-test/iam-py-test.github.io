@@ -2,12 +2,15 @@
 function tryDecode(data){
     let found = {};
     try{
-        found['base64'] = atob(data)
+        base64_decoded = atob(data)
+        if(base64_decoded != "" && base64_decoded != data){
+            found['base64'] = base64_decoded
+        }
     }
     catch(err){}
     try{
         uridecoded = decodeURIComponent(data)
-        if(uridecoded !== data){
+        if(uridecoded !== data && uridecoded !== ""){
             found['uriencoded'] = uridecoded
         }
     }
