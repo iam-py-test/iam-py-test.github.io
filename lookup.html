@@ -19,6 +19,31 @@
       <input name="q" id="q" placeholder="Enter a domain...">
       <input type="submit">
     </form>
+
+    <details>
+      <summary>FAQ</summary>
+      <p>What is the purpose of this tool?</p>
+      <div>
+        &emsp;The purpose of this tool is to lookup information about entries in my personal blocklist, <a href="https://github.com/iam-py-test/my_filters_001/blob/main/antimalware.txt">The malicious website blocklist</a>. This tool makes it easier for me to remove dead domains, investigate false positives, and check if a domain is already listed. It also makes it easier for users of my list to file issue reports.
+      </div>
+      <p>What does last checked mean?</p>
+      <div>
+        &emsp;Every domain in my list has a counter which is incremented whenever the list is updated (and also every Friday). Once that counter hits a certain number, a series of automated checks will be run to determine if the domain is still alive. This counter can be seen in on "Check counter" line below.
+      </div>
+      <p>Why is no data listed for the "open ports"?</p>
+      <div>
+        &emsp;A while ago, I added a feature to run a port scan on newly added domains. However, this caused many problems, and the feature was quickly removed. Few, if any, domains actually have port scan data. If you look at the code of the page, there is an area where that data would be displayed if the entry had that data. This feature was replaced by checking if a simple HTTP web server is running.
+      </div>
+      <p>Where does domain ownership data come from?</p>
+      <div>
+        &emsp;Domain ownership data comes from a manually maintained <a href="https://github.com/iam-py-test/site-reports-001/blob/main/ownership.json">file part of my Site Reports project</a>. The data in that repository was originally for a defunct browser extension known as <a href="https://github.com/iam-py-test/check-site">Check Site</a> which would show reports, including ownership, for websites. Most of the other data in the Site Reports repository is unmaintained and of questionable quality.<br>
+        &emsp;Site ownership data is only available for a very limited number of websites, due to the data being manually vetted and added by me. There is no standard vetting process; often domains are added because they are used on or referenced by official websites of their purported owner. Due to this, the quality varies. Known malicious and scam websites will not be added, even if there are multiple owned by the same company or organization. However, addition to the dataset is not an endorsement.
+      </div>
+      <p>What does "allowlisted" mean?</p>
+      <div>
+        The Malicious Website Blocklist has <a href="https://github.com/iam-py-test/allowlist/blob/main/allowlist.txt">an allowlist of known legitimate domains</a>. This is used in automated checks to identify false positives. If a domain is included in this allowlist, it will be listed as "allowlisted" here, even if it is in the Malicious Website Blocklist.
+      </div>
+    </details>
     
     <div>
       <h3>Results</h3>
@@ -50,6 +75,7 @@
       <p><a href="https://github.com/hagezi/dns-blocklists#tif">HaGeZi's Threat Intelligence Feeds DNS Blocklist</a> (includes the MWB): <span id="tif"></span></p>
       <p>In PUP list: <span id="pup"></span></p>
       <p>In "uBlock" Combo list: <span id="combo"></span></p>
+      <p>In Lite MBW: <span id="lite"></span></p>
       <script src="/js/checkup.js"></script>
     </div>
   </body>

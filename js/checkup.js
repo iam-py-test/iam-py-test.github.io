@@ -5,6 +5,7 @@ var main = async function(){
   document.getElementById('q').value = domain;
 
   let currently_listed = await (await fetch("https://raw.githubusercontent.com/iam-py-test/my_filters_001/main/Alternative%20list%20formats/antimalware_domains.txt")).text();
+  let lite_list = await (await fetch("https://raw.githubusercontent.com/iam-py-test/my_filters_001/refs/heads/main/Alternative%20list%20formats/antimalware_lite_domains.txt")).text();
 
   fetch("https://raw.githubusercontent.com/iam-py-test/my_filters_001/main/entry_data.json").then(async function(req){
     if(!domain){
@@ -119,6 +120,13 @@ fetch("https://raw.githubusercontent.com/iam-py-test/uBlock-combo/main/domains_s
   let domains = (await r.text()).split("\n");
   document.getElementById('combo').textContent = (domains.includes(domain)) ? "Listed" : "Not listed"
 })
+
+if(lite_list.split("\n").includes(domain)){
+  document.getElementById('lite').textContent = "Listed"
+}
+else{
+  document.getElementById('lite').textContent = "Not listed"
+}
 
 }
 main().catch(console.error)
