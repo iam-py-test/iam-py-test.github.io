@@ -43,6 +43,11 @@
       <div>
         The Malicious Website Blocklist has <a href="https://github.com/iam-py-test/allowlist/blob/main/allowlist.txt">an allowlist of known legitimate domains</a>. This is used in automated checks to identify false positives. If a domain is included in this allowlist, it will be listed as "allowlisted" here, even if it is in the Malicious Website Blocklist.
       </div>
+      <p>What does the comments section mean?</p>
+      <div>
+        &emsp;The links and comments displayed in the comments section are in-line comments left in the filterlist itself. These are comments left in the filterlist file by the maintainer (me) or a contributor to describe why a filter was added.<br>
+        &emsp;If a comment is detected to likely be a URL, it will be turned into a link. These links may not be safe to visit. To protect users of this tool, links will go through <a href="https://github.com/iam-py-test/iam-py-test-redirector">my redirector</a>, which checks for known malicious links. My redirector does not track you in any way. You can disable it by adding "no_redirector" to the URL. <a id="redirector_disabled">You can also click this link to load the page with the redirector disabled</a>.
+      </div>
     </details>
     
     <div>
@@ -76,6 +81,8 @@
       <p>In PUP list: <span id="pup"></span></p>
       <p>In "uBlock" Combo list: <span id="combo"></span></p>
       <p>In Lite MBW: <span id="lite"></span></p>
+      <p>Comments:</p>
+      <div id="comments"></div>
       <script src="/js/checkup.js"></script>
     </div>
   </body>

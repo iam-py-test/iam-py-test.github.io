@@ -1,4 +1,25 @@
 "use strict";
+
+function is_link(text){
+  try{
+    let url_test = new URL(text);
+    if(url_test.hostname != ""){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+  catch(err){
+    return false;
+  }
+}
+
+let current_url_parsed = new URL(location.href)
+current_url_parsed.searchParams.append("no_redirector", "true")
+let url_with_redirector_disabled = current_url_parsed.href;
+document.getElementById("redirector_disabled").href = url_with_redirector_disabled;
+
 var main = async function(){
   var domain = new URL(location).searchParams.get("q");
 
@@ -126,6 +147,34 @@ if(lite_list.split("\n").includes(domain)){
 }
 else{
   document.getElementById('lite').textContent = "Not listed"
+}
+
+fetch("https://raw.githubusercontent.com/iam-py-test/my_filters_001/refs/heads/main/special_lists/domain_reasons.json").then(console.log)
+
+let resp = await fetch("https://raw.githubusercontent.com/iam-py-test/my_filters_001/refs/heads/main/domain_reasons.json")
+console.log(resp)
+let json_data = JSON.parse((await resp.text()));
+let domain_data = json_data['domains'][domain];
+if(domain_data != undefined){
+  domain_data['comments'].forEach((comment) => {
+    let is_comment_link = is_link(comment)
+    let commentElm = null;
+    if(is_comment_link == true){
+      commentElm = document.createElement("a");
+      if(location.href.includes("no_redirector")){
+        commentElm.href = comment;
+      }
+      else{
+        commentElm.href = "https://iam-py-test.github.io/iam-py-test-redirector/redirect.html?url=" + encodeURIComponent(comment);
+      }
+    }
+    else{
+      commentElm = document.createElement("span");
+    }
+    commentElm.textContent = comment;
+    document.getElementById('comments').appendChild(commentElm);
+    document.getElementById('comments').appendChild(document.createElement("br"));
+  })
 }
 
 }
