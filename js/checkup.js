@@ -161,7 +161,7 @@ if(domain_data != undefined){
     let commentElm = null;
     if(is_comment_link == true){
       commentElm = document.createElement("a");
-      if(location.href.includes("no_redirector")){
+      if(location.href.includes("no_redirector") || window.knowndomains[comment] != undefined || allowlist.includes(comment) == true){
         commentElm.href = comment;
       }
       else{
