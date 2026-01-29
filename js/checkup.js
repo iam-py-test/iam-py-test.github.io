@@ -3,7 +3,7 @@
 function is_link(text){
   try{
     let url_test = new URL(text);
-    if(url_test.hostname != ""){
+    if(url_test.hostname != "" && text.includes("see also") == false && text.includes("(from ") == false && text.split(" and ").length === 1){
       return true;
     }
     else{
