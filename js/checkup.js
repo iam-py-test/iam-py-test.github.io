@@ -159,9 +159,11 @@ if(domain_data != undefined){
   domain_data['comments'].forEach((comment) => {
     let is_comment_link = is_link(comment)
     let commentElm = null;
+    console.log(is_comment_link, comment)
     if(is_comment_link == true){
+      let comment_link_domain = new URL(comment).hostname;
       commentElm = document.createElement("a");
-      if(location.href.includes("no_redirector") || window.knowndomains[comment] != undefined || allowlist.includes(comment) == true){
+      if(location.href.includes("no_redirector") || window.knowndomains[comment_link_domain] != undefined || allowlist.includes(comment_link_domain) == true){
         commentElm.href = comment;
       }
       else{
