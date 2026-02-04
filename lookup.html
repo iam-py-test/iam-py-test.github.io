@@ -48,6 +48,12 @@
         &emsp;The links and comments displayed in the comments section are in-line comments left in the filterlist itself. These are comments left in the filterlist file by the maintainer (me) or a contributor to describe why a filter was added. Not all filters have a comment directly above them, such as if there are multiple filters in one area. In that case, the tool will display a filter as having no comments.<br>
         &emsp;If a comment is detected to likely be a URL, it will be turned into a link. These links may not be safe to visit. To protect users of this tool, links will go through <a href="https://github.com/iam-py-test/iam-py-test-redirector">my redirector</a>, which checks for known malicious links. My redirector does not track you in any way. You can disable it by adding "no_redirector" to the URL. <a id="redirector_disabled">You can also click this link to load the page with the redirector disabled</a>.
       </div>
+      <p>Why is the linked commit incorrect?</p>
+      <div>
+        <!-- while this is ok, it could use probably being rewritten (added 2026-2-2) -->
+        &emsp;There have been several times where the script used to track entries in the MWB has broken, resulting in entries not being added to the database when they are first added. Instead, they will be added to the database whenever I fix the script or whatever other error was occuring. When adding a new entry to the database, the script looks for the last commit and associates it with the new entry. Normally, this is fine since the script runs whenever there is a new commit. However, if it doesn't run after a commit - such as due to an error - it will instead store the most recent commit when the script ran, which isn't the commit which added the entry.<br>
+        &emsp;TLDR; the commit shown was the last commit before the script ran, and sometimes the script doesn't run right after the commit which added an entry.
+      </div>
     </details>
     
     <div>
@@ -77,10 +83,12 @@
       </div>
       <p>Domain owner: <span id="known"></span></p>
       <p>Allowlisted: <span id="allowlist"></span></p>
+      <p>HaGeZi's Light DNS Blocklist (does not include the MWB): <span id="light_dns"></span></p>
       <p><a href="https://github.com/hagezi/dns-blocklists#tif">HaGeZi's Threat Intelligence Feeds DNS Blocklist</a> (includes the MWB): <span id="tif"></span></p>
+      <p>Dandelion Sprout's antimalware (does <i>not</i> include the MWB): <span id="dandelion"></span></p>
       <p>In PUP list: <span id="pup"></span></p>
       <p>In "uBlock" Combo list: <span id="combo"></span></p>
-      <p>In Lite MBW: <span id="lite"></span></p>
+      <p>In Lite MWB: <span id="lite"></span></p>
       <p>Comments:</p>
       <div id="comments"></div>
       <script src="/js/checkup.js"></script>

@@ -179,5 +179,11 @@ if(domain_data != undefined){
   })
 }
 
+let dandelion_list = (await (await fetch("https://raw.githubusercontent.com/DandelionSprout/adfilt/refs/heads/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareDomains.txt")).text()).split("\n")
+document.getElementById("dandelion").textContent = (dandelion_list.includes(domain)) ? "Listed" : "Not listed"
+
+let light_dns = (await (await fetch("https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/domains/light.txt")).text()).split("\n")
+document.getElementById("light_dns").textContent = (light_dns.includes(domain)) ? "Listed" : "Not listed"
+
 }
 main().catch(console.error)
