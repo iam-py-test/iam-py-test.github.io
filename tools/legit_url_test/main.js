@@ -1,22 +1,22 @@
 "use strict";
 try{
-	fetch("test.txt?utm_source=test&nontracker=1").then(function(res){
+	fetch("test.txt?yclid=test&nontracker=1").then(function(res){
 		var resURL = new URL(res.url)
-		if(resURL.searchParams.has("utm_source")){
+		if(resURL.searchParams.has("yclid")){
  var r = document.createElement('p')
 		r.textContent = 'Requests with tracking parameters are not being filtered'
 		r.style = 'color:#cf0000;'
 		document.getElementById('result').appendChild(r)
 return
 		}
-		if(resURL.searchParams.has("utm_source") === false & resURL.searchParams.get("nontracker") === '1'){
+		if(resURL.searchParams.has("yclid") === false & resURL.searchParams.get("nontracker") === '1'){
  var r = document.createElement('p')
 		r.textContent = 'Requests with tracking parameters are being filtered'
 		r.style = 'color:green;'
 		document.getElementById('result').appendChild(r)
 return
 		}
-		 if(resURL.searchParams.has("utm_source") === false & resURL.searchParams.has("nontracker") === false){
+		 if(resURL.searchParams.has("yclid") === false & resURL.searchParams.has("nontracker") === false){
  var r = document.createElement('p')
 		r.textContent = 'All parameters are being removed. This may break websites'
 		r.style = 'color:#cf0000;'
