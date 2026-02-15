@@ -106,6 +106,11 @@ var main = async function(){
         let has_http_80_elm = document.getElementById("has_http_80");
         has_http_80_elm.textContent = text[domain]['has_http_80']
       }
+
+      console.log(text[domain]['last_commit_faked_1'])
+      if(text[domain]['last_commit_faked_1'] != undefined){
+        document.getElementById("inaccurate_last_commit").innerHTML = "(this information may not be accurate; see <a href='https://infosec.exchange/@iampytest1/116072758422943054'>this Mastodon post for details</a>)"
+      }
     }
     else{
       document.getElementById('my-am').textContent = "Not listed";
@@ -184,10 +189,6 @@ document.getElementById("dandelion").textContent = (dandelion_list.includes(doma
 
 let light_dns = (await (await fetch("https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/domains/light.txt")).text()).split("\n")
 document.getElementById("light_dns").textContent = (light_dns.includes(domain)) ? "Listed" : "Not listed"
-
-  if(text[domain]['last_commit_faked_1'] != undefined){
-    document.getElementById("inaccurate_last_commit").innerHTML = "(this information may not be accurate; see <a href='https://infosec.exchange/@iampytest1/116072758422943054'>this Mastodon post for details</a>)"
-  }
 
 }
 main().catch(console.error)
