@@ -177,10 +177,6 @@ if(domain_data != undefined){
     document.getElementById('comments').appendChild(commentElm);
     document.getElementById('comments').appendChild(document.createElement("br"));
   })
-
-  if(text[domain]['last_commit_faked_1'] != undefined){
-    document.getElementById("inaccurate_last_commit").innerHTML = "(this information may not be accurate; see <a href='https://infosec.exchange/@iampytest1/116072758422943054'>this Mastodon post for details</a>)"
-  }
 }
 
 let dandelion_list = (await (await fetch("https://raw.githubusercontent.com/DandelionSprout/adfilt/refs/heads/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareDomains.txt")).text()).split("\n")
@@ -188,6 +184,10 @@ document.getElementById("dandelion").textContent = (dandelion_list.includes(doma
 
 let light_dns = (await (await fetch("https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/domains/light.txt")).text()).split("\n")
 document.getElementById("light_dns").textContent = (light_dns.includes(domain)) ? "Listed" : "Not listed"
+
+  if(text[domain]['last_commit_faked_1'] != undefined){
+    document.getElementById("inaccurate_last_commit").innerHTML = "(this information may not be accurate; see <a href='https://infosec.exchange/@iampytest1/116072758422943054'>this Mastodon post for details</a>)"
+  }
 
 }
 main().catch(console.error)
