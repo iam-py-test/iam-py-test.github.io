@@ -12,7 +12,7 @@ template = base_template + open("index.template.html").read()
 
 tools = []
 
-def findtools():
+def findtools() -> None:
     tooldirs = []
     toolpaths = []
     for root,dirs,files in os.walk("."):
@@ -26,7 +26,7 @@ def findtools():
             toolpaths.append(os.path.join(dir,"tool.html"))
     return toolpaths
 
-def genlinks(urls):
+def genlinks(urls: list) -> str:
     endresult = ""
     for url in urls:
         endresult += "<li><a href=\"{}\">{}</a></li>\n".format(url,url)
