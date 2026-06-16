@@ -191,4 +191,4 @@ let light_dns = (await (await fetch("https://cdn.jsdelivr.net/gh/hagezi/dns-bloc
 document.getElementById("light_dns").textContent = (light_dns.includes(domain)) ? "Listed" : "Not listed"
 
 }
-main().catch(console.error)
+main()
