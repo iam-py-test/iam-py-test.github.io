@@ -13,10 +13,9 @@
     </style>
   </head>
   <body>
-    <p>My entry tracking system is currently broken, so new entries will not be tracked here or even shown as added, and the listed data is not updated.</p>
+    <h1>Entry lookup</h1>
     <form>
-      <h3>Enter a domain to lookup</h3>
-      <input name="q" id="q" placeholder="Enter a domain...">
+      <label>Enter a domain to lookup: <input name="q" id="q"></label>
       <input type="submit">
     </form>
     <br>
@@ -28,11 +27,11 @@
       </div>
       <p>What does last checked mean?</p>
       <div>
-        &emsp;Every domain in my list has a counter which is incremented whenever the list is updated (and also every Friday). Once that counter hits a certain number, a series of automated checks will be run to determine if the domain is still alive. This counter can be seen in on "Check counter" line below.
+        &emsp;Every domain in my list has a counter which is incremented whenever the list is updated (and also every Friday). Once that counter hits a certain number, a series of automated checks will be run to determine if the domain is still alive. This counter can be seen in on "Check counter" line below. This checking is currently disabled.
       </div>
       <p>Why is no data listed for the "open ports"?</p>
       <div>
-        &emsp;A while ago, I added a feature to run a port scan on newly added domains. However, this caused many problems, and the feature was quickly removed. Few, if any, domains actually have port scan data. If you look at the code of the page, there is an area where that data would be displayed if the entry had that data. This feature was replaced by checking if a simple HTTP web server is running.
+        &emsp;A while ago, I added a feature to run a port scan on newly added domains. However, this caused many problems, and the feature was quickly removed. Few, if any, domains actually have port scan data. If you look at the code of the page, there is an area where that data would be displayed if the entry had that data. This feature was replaced by checking if a simple HTTP web server is running, and that feature is now disabled.
       </div>
       <p>Where does domain ownership data come from?</p>
       <div>
@@ -46,7 +45,8 @@
       <p>What does the comments section mean?</p>
       <div>
         &emsp;The links and comments displayed in the comments section are in-line comments left in the filterlist itself. These are comments left in the filterlist file by the maintainer (me) or a contributor to describe why a filter was added. Not all filters have a comment directly above them, such as if there are multiple filters in one area. In that case, the tool will display a filter as having no comments.<br>
-        &emsp;If a comment is detected to likely be a URL, it will be turned into a link. These links may not be safe to visit. To protect users of this tool, links will go through <a href="https://github.com/iam-py-test/iam-py-test-redirector">my redirector</a>, which checks for known malicious links. My redirector does not track you in any way. You can disable it by adding "no_redirector" to the URL. <a id="redirector_disabled">You can also click this link to load the page with the redirector disabled</a>.
+        &emsp;If a comment is detected to likely be a URL, it will be turned into a link. These links may not be safe to visit; user discretion is advised.<br>
+        &emsp;New entries do not list comments.
       </div>
       <p>Why is the linked commit incorrect?</p>
       <div>

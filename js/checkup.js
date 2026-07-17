@@ -168,12 +168,7 @@ if(domain_data != undefined){
     if(is_comment_link == true){
       let comment_link_domain = new URL(comment).hostname;
       commentElm = document.createElement("a");
-      if(location.href.includes("no_redirector") || window.knowndomains[comment_link_domain] != undefined || allowlist.includes(comment_link_domain) == true){
-        commentElm.href = comment;
-      }
-      else{
-        commentElm.href = "https://iam-py-test.github.io/iam-py-test-redirector/redirect.html?url=" + encodeURIComponent(comment);
-      }
+      commentElm.href = comment;
     }
     else{
       commentElm = document.createElement("span");
