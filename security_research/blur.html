@@ -1,0 +1,6 @@
+<div id="blur">Unlocked</div>
+<script>
+	window.onfocus = () => {document.getElementById("blur").textContent = "Unlocked"}
+	window.onblur = () => {document.getElementById("blur").textContent = "Locked (1)"}
+	window.addEventListener("blur", () => {document.getElementById("blur").textContent = "Locked (2)"})
+</script>
