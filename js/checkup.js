@@ -127,7 +127,7 @@ var main = async function(){
 const allowlist = (await (await fetch("https://raw.githubusercontent.com/iam-py-test/allowlist/main/allowlist.txt")).text()).split("\n");
 document.getElementById("allowlist").textContent = (allowlist.includes(domain)) ? "Yes" : "No"
 
-fetch("https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/tif.txt").then(async function(r){
+fetch("https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/tif-onlydomains.txt").then(async function(r){
   let domains = (await r.text()).split("\n");
   document.getElementById('tif').textContent = (domains.includes(domain)) ? "Listed" : "Not listed"
 })
@@ -177,7 +177,7 @@ if(domain_data != undefined){
 let dandelion_list = (await (await fetch("https://raw.githubusercontent.com/DandelionSprout/adfilt/refs/heads/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareDomains.txt")).text()).split("\n")
 document.getElementById("dandelion").textContent = (dandelion_list.includes(domain)) ? "Listed" : "Not listed"
 
-let light_dns = (await (await fetch("https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/domains/light.txt")).text()).split("\n")
+let light_dns = (await (await fetch("https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/light-onlydomains.txt")).text()).split("\n")
 document.getElementById("light_dns").textContent = (light_dns.includes(domain)) ? "Listed" : "Not listed"
 
 }
