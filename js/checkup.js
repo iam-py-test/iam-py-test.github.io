@@ -15,11 +15,6 @@ function is_link(text){
   }
 }
 
-let current_url_parsed = new URL(location.href)
-current_url_parsed.searchParams.append("no_redirector", "true")
-let url_with_redirector_disabled = current_url_parsed.href;
-document.getElementById("redirector_disabled").href = url_with_redirector_disabled;
-
 var main = async function(){
   var domain = new URL(location).searchParams.get("q");
 
